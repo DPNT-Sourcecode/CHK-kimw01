@@ -8,24 +8,17 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class HelloSolutionTest {
     private HelloSolution hello;
-    private HelloSolutionR2 helloSolutionR2;
 
     @Before
     public void setUp() {
-
         hello = new HelloSolution();
-        helloSolutionR2 = new HelloSolutionR2();
     }
 
     @Test
     public void say_hello() {
-        assertThat(hello.hello("Jordi"), equalTo("Hello, World!"));
-    }
-
-    @Test
-    public void say_hello_R2() {
-        assertThat(helloSolutionR2.hello("Jordi"), equalTo("Hello, Jordi!"));
+        assertThat(hello.hello("Jordi"), equalTo("Hello, Jordi!"));
     }
 }
+
 
 
