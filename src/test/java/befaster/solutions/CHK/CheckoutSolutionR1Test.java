@@ -22,7 +22,10 @@ public class CheckoutSolutionR1Test {
         assertThat(checkout.checkout("4B"), equalTo(90));
         assertThat(checkout.checkout("5A"), equalTo(230));
         assertThat(checkout.checkout("3B"), equalTo(75));
+        assertThat(checkout.checkout("3C"), equalTo(60));
+        assertThat(checkout.checkout("2D"), equalTo(30));
     }
 }
+
 
 
