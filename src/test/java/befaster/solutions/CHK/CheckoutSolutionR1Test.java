@@ -16,13 +16,14 @@ public class CheckoutSolutionR1Test {
 
     @Test
     public void checkout(){
-        assertThat(checkout.checkout("3A"), equalTo(130));
-        assertThat(checkout.checkout("2B"), equalTo(45));
-        assertThat(checkout.checkout("6A"), equalTo(260));
-        assertThat(checkout.checkout("4B"), equalTo(90));
-        assertThat(checkout.checkout("5A"), equalTo(230));
-        assertThat(checkout.checkout("3B"), equalTo(75));
-        assertThat(checkout.checkout("3C"), equalTo(60));
-        assertThat(checkout.checkout("2D"), equalTo(30));
+        assertThat(checkout.checkout("AAA"), equalTo(130));
+        assertThat(checkout.checkout("BB"), equalTo(45));
+        assertThat(checkout.checkout("AAAAAA"), equalTo(260));
+        assertThat(checkout.checkout("BBBB"), equalTo(90));
+        assertThat(checkout.checkout("AAAAA"), equalTo(230));
+        assertThat(checkout.checkout("BBB"), equalTo(75));
+        assertThat(checkout.checkout("CCC"), equalTo(60));
+        assertThat(checkout.checkout("DD"), equalTo(30));
     }
 }
+
