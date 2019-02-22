@@ -26,6 +26,3 @@ public class CheckoutSolutionR1Test {
         assertThat(checkout.checkout("2D"), equalTo(30));
     }
 }
-
-
-
