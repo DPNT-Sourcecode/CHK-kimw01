@@ -25,4 +25,3 @@ public class SumSolutionTest {
         assertThat(sum.compute(15, 10), equalTo(25));
     }
 }
-
