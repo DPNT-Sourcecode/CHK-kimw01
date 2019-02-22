@@ -19,4 +19,10 @@ public class SumSolutionTest {
     public void compute_sum() {
         assertThat(sum.compute(1, 1), equalTo(2));
     }
+
+    @Test
+    public void compute_sum_two() {
+        assertThat(sum.compute(15, 10), equalTo(25));
+    }
 }
+
