@@ -17,12 +17,8 @@ public class HelloSolutionTest {
 
     @Test
     public void say_hello() {
-        assertThat(hello.hello("Jordi"), equalTo("Hello Jordi"));
-    }
-
-    @Test
-    public void say_hello_two() {
-        assertThat(hello.hello("Valtech"), equalTo("Hello Valtech"));
+        assertThat(hello.hello("Jordi"), equalTo("Hello, world"));
     }
 }
+
 

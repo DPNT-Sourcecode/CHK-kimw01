@@ -4,9 +4,9 @@ package befaster.solutions.HLO;
 
 public class HelloSolution {
     public String hello(String friendName) {
-        StringBuffer sb = new StringBuffer("Hello ").append(friendName);
-        return sb.toString();
+        return "Hello, world";
         //throw new SolutionNotImplementedException();
     }
 }
+
 
