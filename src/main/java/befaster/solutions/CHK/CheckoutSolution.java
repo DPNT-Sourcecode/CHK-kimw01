@@ -27,7 +27,8 @@ public class CheckoutSolution {
             // groups of number of items * price to calculate offer for A and B
             int offersA = freqA/3 * 130;
             int offersB = freqB/2 * 45;
-            // price for individual items A and B out of offer
+            // price for individual items A and B out of offer using mod remainder
+            int 
             // obtain the total price by item
             // calculate the total price of basket
 
@@ -37,4 +38,5 @@ public class CheckoutSolution {
 
     }
 }
+
 
