@@ -52,9 +52,12 @@ public class CheckoutSolutionR1Test {
         assertThat(checkout.checkout("F"), equalTo(-1));
     }
 
+    /*
+    For empty basket we expected totalprice equals 0
+     */
     @Test
     public void voidBasketInputTest(){
-        assertThat(checkout.checkout(""), equalTo(-1));
+        assertThat(checkout.checkout(""), equalTo(0));
     }
 
     @Test
@@ -73,5 +76,6 @@ public class CheckoutSolutionR1Test {
         assertThat(checkout.checkout("FABBACCDDA"),equalTo(-1));
     }
 }
+
 
 

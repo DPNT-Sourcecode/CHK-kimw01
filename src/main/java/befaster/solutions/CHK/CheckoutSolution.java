@@ -14,16 +14,17 @@ public class CheckoutSolution {
         // C = 20, D = 15
         // steps:
 
-        // basic validations
+        // basic validations: if object null, return -1, if the basket if empty return 0
         if (skus == null) {
             return -1;
         }else if(skus.length()<=0){
-            return -1;
+            return 0;
         }
 
         // create a list of items to use Collections to manage the list of items
         List<String> items = Stream.of(skus.split("")).collect(Collectors.toList());
 
+        // special validation for illegal inputs, illegal items
         // validate illegal entries cloning the list of items
         List<String> clone = items.stream().collect(Collectors.toList());
         // validate illegal input, if there is any illegal input return -1
@@ -47,6 +48,7 @@ public class CheckoutSolution {
 
     }
 }
+
 
 
 
