@@ -1,7 +1,5 @@
 package befaster.solutions.CHK;
 
-import befaster.runner.SolutionNotImplementedException;
-
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,35 +13,31 @@ public class CheckoutSolution {
         // B = 30, 2B for 45
         // C = 20, D = 15
         // steps:
-        // validate illegal input, if there is any illegal input return -1
+
         // create a list of items to use Collections to manage the list of items
         List<String> items = Stream.of(skus.split("")).collect(Collectors.toList());
+
         // validate illegal entries cloning the list of items
         List<String> clone = items.stream().collect(Collectors.toList());
+        // validate illegal input, if there is any illegal input return -1
         clone.removeIf(item -> item.equals("A") | item.equals("B") | item.equals("C") | item.equals("D"));
         // if the size of list is greater than 0 this means that the list contains illegal items or references
         if (clone.size() > 0) {
             return -1;
         }
 
-        // identify the frequency of items with offer (A and B)
-        int freqA = Collections.frequency(items, "A");
-        int freqB = Collections.frequency(items, "B");
-        // calculate the frequency of items without offer
-        int freqC = Collections.frequency(items, "C");
-        int freqD = Collections.frequency(items, "D");
-        // groups of number of items * price to calculate offer for A and B
-        int offersA = freqA / 3 * 130;
-        int offersB = freqB / 2 * 45;
-        // price for individual items A and B out of offer using mod remainder
-        int noOfferA = freqA % 3 * 50;
-        int noOfferB = freqB % 2 * 30;
-        // obtain the total price for C and D
-        int priceC = freqC * 20;
-        int priceD = freqD * 15;
+        // price of A with offer
+        int priceItemsA = ((Collections.frequency(items, "A") / 3) * 130) + ((Collections.frequency(items, "A") % 3) * 50);
+        // price of B with offer
+        int priceItemsB = ((Collections.frequency(items, "B") / 2) * 45) + ((Collections.frequency(items, "B") % 2) * 30);
+        // price of C
+        int priceC = Collections.frequency(items, "C") * 20;
+        // price of D
+        int priceD = Collections.frequency(items, "D") * 15;
         // return the total price of basket
-        return (offersA + offersB) + (noOfferA + noOfferB) + (priceC + priceD);
+        return priceItemsA + priceItemsB + priceC + priceD;
 
 
     }
 }
+
