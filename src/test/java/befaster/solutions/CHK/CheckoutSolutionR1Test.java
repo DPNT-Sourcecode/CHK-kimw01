@@ -63,8 +63,3 @@ public class CheckoutSolutionR1Test {
         assertThat(checkout.checkout("FABBACCDDA"),equalTo(245));
     }
 }
-
-
-
-
-
