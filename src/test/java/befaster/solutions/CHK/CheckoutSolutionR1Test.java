@@ -14,20 +14,39 @@ public class CheckoutSolutionR1Test {
         checkout = new CheckoutSolution();
     }
 
+    // offers 3A = 130, 2B = 45
+    // prices A = 50, B = 30, C = 20, D = 15
+    // no decimals, only integers
+
     @Test
-    public void checkout(){
-        // offers 3A = 130, 2B = 45
-        // prices A = 50, B = 30, C = 20, D = 15
+    public void simpleItemATest(){
         assertThat(checkout.checkout("AAA"), equalTo(130));
-        assertThat(checkout.checkout("BB"), equalTo(45));
         assertThat(checkout.checkout("AAAAAA"), equalTo(260));
-        assertThat(checkout.checkout("BBBB"), equalTo(90));
         assertThat(checkout.checkout("AAAAA"), equalTo(230));
+    }
+
+    @Test
+    public void simpleItemBTest(){
+        assertThat(checkout.checkout("BB"), equalTo(45));
+        assertThat(checkout.checkout("BBBB"), equalTo(90));
         assertThat(checkout.checkout("BBB"), equalTo(75));
+    }
+
+    @Test
+    public void simpleItemCTest(){
         assertThat(checkout.checkout("CCC"), equalTo(60));
+    }
+
+    @Test
+    public void simpleItemDTest(){
         assertThat(checkout.checkout("DD"), equalTo(30));
+    }
+
+    @Test
+    public void combinationItemsTest(){
         assertThat(checkout.checkout("ADADABCCDDBBBAC"), equalTo(390));
     }
 }
+
 
 
