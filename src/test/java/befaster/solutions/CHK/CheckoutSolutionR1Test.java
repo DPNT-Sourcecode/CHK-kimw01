@@ -53,10 +53,17 @@ public class CheckoutSolutionR1Test {
     }
 
     @Test
+    public void combinationIllegalInputTest(){
+        assertThat(checkout.checkout("FMGGTT"), equalTo(-1));
+    }
+
+    @Test
     public void combinationIllegalItemsAndCorrectItems(){
-        assertThat(checkout.checkout("FABBACCDDA"),equalTo());
+        // calculate only correct Items, ignore illegal items
+        assertThat(checkout.checkout("FABBACCDDA"),equalTo(245));
     }
 }
+
 
 
 
