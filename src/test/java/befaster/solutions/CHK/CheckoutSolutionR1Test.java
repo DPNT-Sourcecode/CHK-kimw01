@@ -26,7 +26,8 @@ public class CheckoutSolutionR1Test {
         assertThat(checkout.checkout("BBB"), equalTo(75));
         assertThat(checkout.checkout("CCC"), equalTo(60));
         assertThat(checkout.checkout("DD"), equalTo(30));
-        assertThat(checkout.checkout("ADADABCCDDBBBAC"), equalTo(30));
+        assertThat(checkout.checkout("ADADABCCDDBBBAC"), equalTo(390));
     }
 }
+
 
