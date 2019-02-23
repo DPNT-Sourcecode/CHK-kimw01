@@ -11,15 +11,17 @@ public class CheckoutSolution {
     public Integer checkout(String skus) {
 
         // special offers
-        // A = 50, 3A for 130 -> 150 - 130 = 20, (20/150)x100 = 13.333333% decrease
-        // B = 30, 2B for 45 --> 60 - 45 = 15, (15/60)x100 = 25% decrease
+        // A = 50, 3A for 130
+        // B = 30, 2B for 45
         // C = 20, D = 15
         // steps:
         // validate illegal input, if there is any illegal input return -1
         // create a list of items to use Collections to manage the list of items
         List<String> items = Stream.of(skus.split("")).collect(Collectors.toList());
+        // validate illegal entries cloning the list of items
         List<String> clone = items.stream().collect(Collectors.toList());
         clone.removeIf(item -> item.equals("A") | item.equals("B") | item.equals("C") | item.equals("D"));
+        // if the size of list is greater than 0 this means that the list contains illegal items or references
         if (clone.size() > 0) {
             return -1;
         }
@@ -45,11 +47,3 @@ public class CheckoutSolution {
 
     }
 }
-
-
-
-
-
-
-
-
