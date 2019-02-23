@@ -18,8 +18,9 @@ public class CheckoutSolution {
         // validate illegal input, if there is any illegal input return -1
         // create a list of items to use Collections to manage the list of items
         List<String> items = Stream.of(skus.split("")).collect(Collectors.toList());
+        items.
         items.removeIf(item -> item.equals("A") | item.equals("B") | item.equals("C") | item.equals("D"));
-        if(items.size()<=0){
+        if(items.size()>0){
             return -1;
         }
         if (skus.contains("A") | skus.contains("B") | skus.contains("C") | skus.contains("D")) {
@@ -47,6 +48,7 @@ public class CheckoutSolution {
 
     }
 }
+
 
 
 
