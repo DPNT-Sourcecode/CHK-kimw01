@@ -13,6 +13,7 @@ public class CheckoutSolution {
         // special offers
         // A = 50, 3A for 130 -> 150 - 130 = 20, (20/150)x100 = 13.333333% decrease
         // B = 30, 2B for 45 --> 60 - 45 = 15, (15/60)x100 = 25% decrease
+        // C = 20, D = 15
         // steps:
         // validate illegal input
         if (skus.contains("A") | skus.contains("B") | skus.contains("C") | skus.contains("D")) {
@@ -28,15 +29,19 @@ public class CheckoutSolution {
             int offersA = freqA/3 * 130;
             int offersB = freqB/2 * 45;
             // price for individual items A and B out of offer using mod remainder
-            int 
-            // obtain the total price by item
-            // calculate the total price of basket
-
+            int noOfferA = freqA%3 * 50;
+            int noOfferB = freqB%3 * 30;
+            // obtain the total price for C and D
+            int priceC = freqC * 20;
+            int priceD = freqD * 15;
+            // return the total price of basket
+            return (offersA + offersB) + (noOfferA + noOfferB) + (priceC + priceD);
         }
         return -1;
 
 
     }
 }
+
 
 
