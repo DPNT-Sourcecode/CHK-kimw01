@@ -46,7 +46,18 @@ public class CheckoutSolutionR1Test {
     public void combinationItemsTest(){
         assertThat(checkout.checkout("ADADABCCDDBBBAC"), equalTo(390));
     }
+
+    @Test
+    public void simpleIllegalInputTest(){
+        assertThat(checkout.checkout("F"), equalTo(-1));
+    }
+
+    @Test
+    public void combinationIllegalItemsAndCorrectItems(){
+        assertThat(checkout.checkout("FABBACCDDA"),equalTo());
+    }
 }
+
 
 
 
