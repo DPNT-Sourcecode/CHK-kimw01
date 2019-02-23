@@ -53,6 +53,16 @@ public class CheckoutSolutionR1Test {
     }
 
     @Test
+    public void voidInputTest(){
+        assertThat(checkout.checkout(""), equalTo(-1));
+    }
+
+    @Test
+    public void nullInputTest(){
+        assertThat(checkout.checkout(null), equalTo(-1));
+    }
+
+    @Test
     public void combinationIllegalInputTest(){
         assertThat(checkout.checkout("FMGGTT"), equalTo(-1));
     }
@@ -63,3 +73,4 @@ public class CheckoutSolutionR1Test {
         assertThat(checkout.checkout("FABBACCDDA"),equalTo(-1));
     }
 }
+

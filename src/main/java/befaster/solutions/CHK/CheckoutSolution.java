@@ -22,7 +22,7 @@ public class CheckoutSolution {
         // validate illegal input, if there is any illegal input return -1
         clone.removeIf(item -> item.equals("A") | item.equals("B") | item.equals("C") | item.equals("D"));
         // if the size of list is greater than 0 this means that the list contains illegal items or references
-        if (clone.size() > 0) {
+        if (clone.size() > 0 | skus == null | skus.length()<=0) {
             return -1;
         }
 
@@ -40,4 +40,5 @@ public class CheckoutSolution {
 
     }
 }
+
 
