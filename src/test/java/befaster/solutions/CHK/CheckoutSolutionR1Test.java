@@ -53,7 +53,7 @@ public class CheckoutSolutionR1Test {
     }
 
     @Test
-    public void voidInputTest(){
+    public void voidBasketInputTest(){
         assertThat(checkout.checkout(""), equalTo(-1));
     }
 
@@ -73,4 +73,5 @@ public class CheckoutSolutionR1Test {
         assertThat(checkout.checkout("FABBACCDDA"),equalTo(-1));
     }
 }
+
 
