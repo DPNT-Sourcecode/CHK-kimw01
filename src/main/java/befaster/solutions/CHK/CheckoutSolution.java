@@ -30,7 +30,7 @@ public class CheckoutSolution {
             int offersB = freqB/2 * 45;
             // price for individual items A and B out of offer using mod remainder
             int noOfferA = freqA%3 * 50;
-            int noOfferB = freqB%3 * 30;
+            int noOfferB = freqB%2 * 30;
             // obtain the total price for C and D
             int priceC = freqC * 20;
             int priceD = freqD * 15;
@@ -42,6 +42,7 @@ public class CheckoutSolution {
 
     }
 }
+
 
 
 

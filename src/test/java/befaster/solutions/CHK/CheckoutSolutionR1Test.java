@@ -60,6 +60,7 @@ public class CheckoutSolutionR1Test {
     @Test
     public void combinationIllegalItemsAndCorrectItems(){
         // calculate only correct Items, ignore illegal items
-        assertThat(checkout.checkout("FABBACCDDA"),equalTo(245));
+        assertThat(checkout.checkout("FABBACCDDA"),equalTo(-1));
     }
 }
+
