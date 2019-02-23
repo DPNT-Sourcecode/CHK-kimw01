@@ -15,7 +15,7 @@ public class CheckoutSolution {
         // B = 30, 2B for 45 --> 60 - 45 = 15, (15/60)x100 = 25% decrease
         // C = 20, D = 15
         // steps:
-        // validate illegal input
+        // validate illegal input, if there is any illegal input return -1
         if (skus.contains("A") | skus.contains("B") | skus.contains("C") | skus.contains("D")) {
             // create a list of items to use Collections to manage the list of items
             List<String> items = Stream.of(skus.split("")).collect(Collectors.toList());
@@ -42,6 +42,7 @@ public class CheckoutSolution {
 
     }
 }
+
 
 
 
