@@ -8,16 +8,15 @@ import java.util.stream.Stream;
 public class CheckoutSolution {
     public Integer checkout(String skus) {
 
-        // special offers
-        // A = 50, 3A for 130
-        // B = 30, 2B for 45
-        // C = 20, D = 15
+        // special offers 2E get one B free
+        // offers 3A = 130, 5A = 200, 2B = 45
+        // prices A = 50, B = 30, C = 20, D = 15, E = 40
         // steps:
-
+        
         // basic validations: if object null, return -1, if the basket if empty return 0
         if (skus == null) {
             return -1;
-        }else if(skus.length()<=0){
+        } else if (skus.length() <= 0) {
             return 0;
         }
 
@@ -33,18 +32,7 @@ public class CheckoutSolution {
         if (clone.size() > 0) {
             return -1;
         }
-
-        // price of A with offer
-        int priceItemsA = ((Collections.frequency(items, "A") / 3) * 130) + ((Collections.frequency(items, "A") % 3) * 50);
-        // price of B with offer
-        int priceItemsB = ((Collections.frequency(items, "B") / 2) * 45) + ((Collections.frequency(items, "B") % 2) * 30);
-        // price of C
-        int priceC = Collections.frequency(items, "C") * 20;
-        // price of D
-        int priceD = Collections.frequency(items, "D") * 15;
-        // return the total price of basket
-        return priceItemsA + priceItemsB + priceC + priceD;
-
-
+        return -1;
     }
 }
+

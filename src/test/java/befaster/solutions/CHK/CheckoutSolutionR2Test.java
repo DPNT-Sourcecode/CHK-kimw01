@@ -70,6 +70,11 @@ public class CheckoutSolutionR2Test {
     }
 
     @Test
+    public void simpleCombinationSpecialOfferBFreeTest(){
+        assertThat(checkout.checkout("BBEE"), equalTo(110));
+    }
+
+    @Test
     public void combinationSpecialOfferBFreeTest(){
         assertThat(checkout.checkout("AABCDDEECDE"), equalTo(305));
     }
@@ -103,6 +108,7 @@ public class CheckoutSolutionR2Test {
         assertThat(checkout.checkout("FABBACCDDA"), equalTo(-1));
     }
 }
+
 
 
 
