@@ -18,7 +18,27 @@ enum item {
     C("C", 20, false, false),
     D("D", 15, false, false),
     E("E", 40, false, true),
-    F("F", 10, false, true);
+    F("F", 10, false, true),
+    G("G", 20, false, false),
+    H("H", 10, true, false), //5H for 45, 10H for 80  |
+    I("I", 35, false, false),
+    J("J", 60, false, false),
+    K("K", 80, true, false), //   | 2K for 150             |
+    L("L", 90, false, false),
+    M("M", 15, false, false),
+    N("N", 40, false, true), //    | 3N get one M free      |
+    O("O", 10, false, false),
+    P("p", 50, true, false),  // | 5P for 200             |
+    Q("Q", 30, true, false),  // | 3Q for 80              |
+    R("R", 50, false, true),  // | 3R get one Q free      |
+    S("S", 30, false, false),
+    T("T", 20, false, false),
+    U("U", 40, false, true),   //| 3U get one U free      |
+    V("V", 50, true, false),  //| 2V for 90, 3V for 130  |
+    W("W", 20, false, false),
+    X("X", 90, false, false),
+    Y("Y", 10, false, false),
+    Z("Z", 50, false, false);
     private String itemRef;
     private int price;
     private boolean haveOffer;
@@ -224,14 +244,14 @@ public class CheckoutSolution {
                     // they will be remove from collection for the next calculation pack of items/products
                     // calculate the remain items and remove the number of items describe by special offer
                     // Be careful when the special offer pack get free n items of the same item reference
-                    if(so.getFreeItem().getItemRef().equals(product.getItemRef())){
+                    if (so.getFreeItem().getItemRef().equals(product.getItemRef())) {
                         // calculate packs
                         List<String> remainItems = collect.subList(0, collect.size());
-                        while(remainItems.iterator().hasNext() && ((remainItems.size() / so.getNumItems())>0)){
-                            if(remainItems.size()>so.getNumItems()) {
+                        while (remainItems.iterator().hasNext() && ((remainItems.size() / so.getNumItems()) > 0)) {
+                            if (remainItems.size() > so.getNumItems()) {
                                 // sublist of items remain, remove 3 (2 pack and 1 free)
                                 remainItems = remainItems.subList(0, remainItems.size() - 3);
-                            }else{
+                            } else {
                                 break;
                             }
                             // add price of two items of pack to total price until finish the loop
@@ -239,7 +259,7 @@ public class CheckoutSolution {
                         }
                         // remain items out pack
                         sumToTotalPrice(remainItems.size() * product.getPrice());
-                    }else {
+                    } else {
                         for (int i = (collect.size() / so.getNumItems()); i > 0; i--) {
                             items.remove(so.getFreeItem().getItemRef());
                         }
@@ -267,3 +287,4 @@ public class CheckoutSolution {
         return items;
     }
 }
+
