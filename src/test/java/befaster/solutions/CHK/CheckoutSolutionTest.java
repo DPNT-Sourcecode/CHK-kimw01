@@ -70,7 +70,7 @@ public class CheckoutSolutionTest {
         assertThat(checkout.checkout("FFFFFF"), equalTo(40));
         assertThat(checkout.checkout("FFFFFFF"), equalTo(50));
         assertThat(checkout.checkout("FFFFFFFF"), equalTo(60));
-        assertThat(checkout.checkout("FFFFFFFFF"), equalTo(40));
+        assertThat(checkout.checkout("FFFFFFFFF"), equalTo(60));
     }
 
     @Test
@@ -117,4 +117,5 @@ public class CheckoutSolutionTest {
         assertThat(checkout.checkout("FABBACxCDDAE@F"), equalTo(-1));
     }
 }
+
 

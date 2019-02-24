@@ -228,11 +228,12 @@ public class CheckoutSolution {
                         // calculate packs
                         while(items.iterator().hasNext() && ((items.size() / so.getNumItems())>0)){
                             if(items.size()>so.getNumItems()) {
-                                items = items.subList(0, items.size() - 1);
+                                // sublist of items remain, remove 3 (2 pack and 1 free)
+                                items = items.subList(0, items.size() - 3);
                             }else{
                                 break;
                             }
-                            // add price of two items to totalprice until finish the loop
+                            // add price of two items of pack to total price until finish the loop
                             sumToTotalPrice(so.getNumItems() * product.getPrice());
                         }
                     }else {
@@ -262,4 +263,5 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
