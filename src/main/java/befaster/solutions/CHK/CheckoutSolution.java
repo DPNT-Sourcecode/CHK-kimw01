@@ -226,12 +226,15 @@ public class CheckoutSolution {
                     // Be careful when the special offer pack get free n items of the same item reference
                     if(so.getFreeItem().getItemRef().equals(product.getItemRef())){
                         // calculate packs
-                        for (int i = (collect.size() / so.getNumItems()); i > 0; i--) {
-                            if(items.size()>so.getNumItems()){
-                                items = items.subList(0, items.size()-1);
+                        while(items.iterator().hasNext() && ((items.size() / so.getNumItems())>0)){
+                            if(items.size()>so.getNumItems()) {
+                                items = items.subList(0, items.size() - 1);
+                            }else{
+                                break;
                             }
+                            // add price of two items to totalprice until finish the loop
+                            sumToTotalPrice(so.getNumItems() * product.getPrice());
                         }
-
                     }else {
                         for (int i = (collect.size() / so.getNumItems()); i > 0; i--) {
                             items.remove(so.getFreeItem().getItemRef());
@@ -259,3 +262,4 @@ public class CheckoutSolution {
         return items;
     }
 }
+
