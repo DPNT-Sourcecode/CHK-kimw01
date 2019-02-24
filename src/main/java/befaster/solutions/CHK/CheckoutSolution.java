@@ -9,11 +9,33 @@ import java.util.stream.Stream;
 * Enums constants to represent the items and the attributes of these items such as offers and special offers
  */
 
+// item representation
 enum item {
+    // itemRef, price, haveOffer, haveSpecialOffer
+    A("A", 50, true, false), B("B", 30, true, false), C("C", 20, false, false), D("D",15,false,false), E("E", 40, false, true);
+    private String itemRef;
+    private int price;
+    private boolean haveOffer;
+    private boolean haveSpecialOffer;
+
+    // contructor
+    item(final String itemRef, final int price, final boolean haveOffer, final boolean haveSpecialOffer){
+        this.itemRef = itemRef;
+        this.price = price;
+        this.haveOffer = haveOffer;
+        this.haveSpecialOffer = haveSpecialOffer;
+    }
+}
+
+// offer linked to item
+enum offer {
 
 }
 
-enum 
+// specialOffer linked to item
+enum specialOffer {
+
+}
 public class CheckoutSolution {
     public Integer checkout(String skus) {
 
@@ -44,5 +66,6 @@ public class CheckoutSolution {
         return -1;
     }
 }
+
 
 
