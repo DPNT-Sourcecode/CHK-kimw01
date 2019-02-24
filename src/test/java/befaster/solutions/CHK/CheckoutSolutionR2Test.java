@@ -21,12 +21,12 @@ public class CheckoutSolutionR2Test {
 
     @Test
     public void specialDeployTest(){
-        assertThat(checkout.checkout("A"), equalTo(100));
-        assertThat(checkout.checkout("B"), equalTo(100));
-        assertThat(checkout.checkout("C"), equalTo(100));
-        assertThat(checkout.checkout("D"), equalTo(100));
-        assertThat(checkout.checkout("E"), equalTo(100));
-        assertThat(checkout.checkout("F"), equalTo(100));
+        assertThat(checkout.checkout("A"), equalTo(50));
+        assertThat(checkout.checkout("B"), equalTo(30));
+        assertThat(checkout.checkout("C"), equalTo(20));
+        assertThat(checkout.checkout("D"), equalTo(15));
+        assertThat(checkout.checkout("E"), equalTo(40));
+        assertThat(checkout.checkout("F"), equalTo(10));
     }
     @Test
     public void simpleATest() {
@@ -44,28 +44,13 @@ public class CheckoutSolutionR2Test {
     }
 
     @Test
-    public void simpleItemBTest() {
-        assertThat(checkout.checkout("B"), equalTo(30));
-    }
-
-    @Test
     public void simpleItem2BTest() {
         assertThat(checkout.checkout("BB"), equalTo(45));
     }
 
     @Test
     public void simpleItemCTest() {
-        assertThat(checkout.checkout("C"), equalTo(20));
-    }
-
-    @Test
-    public void simpleItemDTest() {
-        assertThat(checkout.checkout("D"), equalTo(15));
-    }
-
-    @Test
-    public void simpleItemETest() {
-        assertThat(checkout.checkout("EEE"), equalTo(120));
+        assertThat(checkout.checkout("CCC"), equalTo(20));
     }
 
     @Test
@@ -88,11 +73,6 @@ public class CheckoutSolutionR2Test {
         assertThat(checkout.checkout("AABCDDEECDE"), equalTo(305));
     }
 
-    @Test
-    public void simpleIllegalInputTest() {
-        assertThat(checkout.checkout("F"), equalTo(-1));
-    }
-
     /*
     For empty basket we expected totalprice equals 0
      */
@@ -108,13 +88,14 @@ public class CheckoutSolutionR2Test {
 
     @Test
     public void combinationIllegalInputTest() {
-        assertThat(checkout.checkout("FMGGTT"), equalTo(-1));
+        assertThat(checkout.checkout("_MGGTT"), equalTo(-1));
     }
 
     @Test
     public void combinationIllegalItemsAndCorrectItems() {
         // calculate only correct Items, ignore illegal items
-        assertThat(checkout.checkout("FABBACCDDA"), equalTo(-1));
+        assertThat(checkout.checkout("FABBACxCDDAE@F"), equalTo(-1));
     }
 }
+
 
