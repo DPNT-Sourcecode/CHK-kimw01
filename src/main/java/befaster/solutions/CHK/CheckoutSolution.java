@@ -161,8 +161,8 @@ public class CheckoutSolution {
         }
 
         // manage collection of items/products by type of taxonomy (1:special offers, 2:pack offers, 3:normal items)
-        // important handle the items in taxonomy order to discard free items before calculate pack offers
-        // for the importancy 
+        // important: handle the items in taxonomy order to discard free items before calculate pack offers
+        // we cannot create a recursive method to handle all the products
         // first: handle items with special offers
         for (item i : item.values()) {
             if(i.isHaveSpecialOffer()){
@@ -229,5 +229,6 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
