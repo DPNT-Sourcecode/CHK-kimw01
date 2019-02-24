@@ -159,11 +159,26 @@ public class CheckoutSolution {
         // manage collection of items/products by type of taxonomy (special offers, pack offers, normal items)
         // first: handle items with special offers
         for (item i : item.values()) {
-            
+            if(i.isHaveSpecialOffer()){
+                // calculate price by item/product and get the remain items in the collection
+                items = processItemCollection(items, i);
+            }
         }
         // second: handle items with pack offers
+        for (item i : item.values()) {
+            if(i.isHaveOffer()){
+                // calculate price by item/product and get the remain items in the collection
+                items = processItemCollection(items, i);
+            }
+        }
         // third: handle items without any kind of offer
-
+        for (item i : item.values()) {
+            if(!i.isHaveSpecialOffer() && !i.isHaveOffer()){
+                // calculate price by item/product and get the remain items in the collection
+                items = processItemCollection(items, i);
+            }
+        }
+        
         return -1;
     }
 
@@ -208,3 +223,4 @@ public class CheckoutSolution {
         return items;
     }
 }
+
