@@ -46,12 +46,12 @@ public class CheckoutSolutionR2Test {
 
     @Test
     public void simpleItemCTest() {
-        assertThat(checkout.checkout("CCC"), equalTo(60));
+        assertThat(checkout.checkout("C"), equalTo(20));
     }
 
     @Test
     public void simpleItemDTest() {
-        assertThat(checkout.checkout("DD"), equalTo(30));
+        assertThat(checkout.checkout("D"), equalTo(15));
     }
 
     @Test
@@ -108,3 +108,4 @@ public class CheckoutSolutionR2Test {
         assertThat(checkout.checkout("FABBACCDDA"), equalTo(-1));
     }
 }
+
