@@ -139,7 +139,7 @@ public class CheckoutSolution {
         // offers 3A = 130, 5A = 200, 2B = 45
         // prices A = 50, B = 30, C = 20, D = 15, E = 40
         // steps:
-
+        System.out.println("skus: "+skus);
         // basic validations: if object null, return -1, if the basket if empty return 0
         if (skus == null) {
             return -1;
@@ -149,7 +149,7 @@ public class CheckoutSolution {
 
         // create a list of items to use Collections to handle the list of items
         List<String> items = Stream.of(skus.split("")).collect(Collectors.toList());
-
+        System.out.println("list: "+items);
         // special validation for illegal inputs, illegal items
         // validate illegal entries cloning the list of items
         List<String> clone = items.stream().collect(Collectors.toList());
@@ -234,4 +234,5 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
