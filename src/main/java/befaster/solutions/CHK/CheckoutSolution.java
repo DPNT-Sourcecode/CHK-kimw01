@@ -156,8 +156,23 @@ public class CheckoutSolution {
             return -1;
         }
 
-        // first: handle special offers
+        // manage collection of items/products by type of taxonomy (special offers, pack offers, normal items)
+        // first: handle items with special offers
+        // second: handle items with pack offers
+        // third: handle items without any kind of offer
+
         return -1;
     }
+
+    /**
+     *
+     * @param items
+     * @param product
+     * @return
+     */
+    private List<String> processItemCollection(List<String> items, item product){
+        return 
+    }
 }
+
 
