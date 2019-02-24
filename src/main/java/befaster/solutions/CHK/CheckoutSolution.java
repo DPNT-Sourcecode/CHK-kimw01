@@ -5,6 +5,15 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/*
+* Enums constants to represent the items and the attributes of these items such as offers and special offers
+ */
+
+enum item {
+
+}
+
+enum 
 public class CheckoutSolution {
     public Integer checkout(String skus) {
 
@@ -12,7 +21,7 @@ public class CheckoutSolution {
         // offers 3A = 130, 5A = 200, 2B = 45
         // prices A = 50, B = 30, C = 20, D = 15, E = 40
         // steps:
-        
+
         // basic validations: if object null, return -1, if the basket if empty return 0
         if (skus == null) {
             return -1;
@@ -35,4 +44,5 @@ public class CheckoutSolution {
         return -1;
     }
 }
+
 
