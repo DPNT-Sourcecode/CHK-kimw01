@@ -281,7 +281,7 @@ public class CheckoutSolution {
                         while (remainItems.iterator().hasNext() && ((remainItems.size() / so.getNumItems()) > 0)) {
                             if (remainItems.size() > so.getNumItems()) {
                                 // sublist of items remain, remove 3 (2 pack and 1 free)
-                                remainItems = remainItems.subList(0, remainItems.size() - 3);
+                                remainItems = remainItems.subList(0, remainItems.size() - (so.getNumItems()+1));
                             } else {
                                 break;
                             }
@@ -318,6 +318,7 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
 
