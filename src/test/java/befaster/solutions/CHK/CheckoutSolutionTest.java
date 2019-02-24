@@ -18,7 +18,12 @@ public class CheckoutSolutionTest {
     // offers 3A = 130, 5A = 200, 2B = 45
     // prices A = 50, B = 30, C = 20, D = 15, E = 40, F = 10
     // no decimals, only integers
-
+    @Test
+    public void oneTest(){
+        assertThat(checkout.checkout("ABCDEF"), equalTo(165));
+        assertThat(checkout.checkout("ABCDEFABCDEF"), equalTo(165));
+        assertThat(checkout.checkout("CDFFAECBDEAB"), equalTo(165));
+    }
     @Test
     public void simpleTest(){
         assertThat(checkout.checkout("A"), equalTo(50));
@@ -117,5 +122,3 @@ public class CheckoutSolutionTest {
         assertThat(checkout.checkout("FABBACxCDDAE@F"), equalTo(-1));
     }
 }
-
-
