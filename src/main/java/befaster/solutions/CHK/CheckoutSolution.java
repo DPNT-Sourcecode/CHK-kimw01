@@ -154,7 +154,7 @@ public class CheckoutSolution {
         // validate illegal entries cloning the list of items
         List<String> clone = items.stream().collect(Collectors.toList());
         // validate illegal input, if there is any illegal input return -1
-        clone.removeIf(item -> item.equals("A") | item.equals("B") | item.equals("C") | item.equals("D")  | item.equals("E"));
+        clone.removeIf(item -> item.equals("A") | item.equals("B") | item.equals("C") | item.equals("D") | item.equals("E"));
         // if the size of list is greater than 0 this means that the list contains illegal items or references
         if (clone.size() > 0) {
             return -1;
@@ -220,9 +220,9 @@ public class CheckoutSolution {
                 // second: with offers
                 int remainItems = collect.size();
                 for (offer o : product.getOffers()) {
-                    sumToTotalPrice(( remainItems / o.getNumItems()) * o.getPrice());
+                    sumToTotalPrice((remainItems / o.getNumItems()) * o.getPrice());
                     // local remain items by product
-                    remainItems = collect.size() % o.getNumItems();
+                    remainItems = remainItems % o.getNumItems();
                 }
                 // sum the price of local remain items by product
                 sumToTotalPrice(remainItems * product.getPrice());
@@ -234,3 +234,4 @@ public class CheckoutSolution {
         return items;
     }
 }
+
