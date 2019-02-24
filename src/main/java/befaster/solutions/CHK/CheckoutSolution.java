@@ -1,25 +1,26 @@
 package befaster.solutions.CHK;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /*
-* Enums constants to represent the items and the attributes of these items such as offers and special offers
+ * Enums constants to represent the items and the attributes of these items such as offers and special offers
  */
 
 // item representation
 enum item {
     // itemRef, price, haveOffer, haveSpecialOffer
-    A("A", 50, true, false), B("B", 30, true, false), C("C", 20, false, false), D("D",15,false,false), E("E", 40, false, true);
+    A("A", 50, true, false), B("B", 30, true, false), C("C", 20, false, false), D("D", 15, false, false), E("E", 40, false, true);
     private String itemRef;
     private int price;
     private boolean haveOffer;
     private boolean haveSpecialOffer;
 
     // contructor
-    item(final String itemRef, final int price, final boolean haveOffer, final boolean haveSpecialOffer){
+    item(final String itemRef, final int price, final boolean haveOffer, final boolean haveSpecialOffer) {
         this.itemRef = itemRef;
         this.price = price;
         this.haveOffer = haveOffer;
@@ -41,17 +42,32 @@ enum item {
     public boolean isHaveSpecialOffer() {
         return haveSpecialOffer;
     }
+
+    // get offers by item
+    public ArrayList<offer> getOffers() {
+        ArrayList<offer> offers = new ArrayList<offer>();
+        if (this.equals(A)) {
+            offers.add(offer.A1);
+            offers.add(offer.A2);
+        } else if (this.equals(B)) {
+            offers.add(offer.B);
+        }
+
+        return offers;
+    }
 }
 
 // offer linked to item
 enum offer {
+    // to manage the groups of items of the same item
+    // will be necessary manage the groups in descendent order by numItems
     // numItems, price
-    A1(5,200), A2(3,130), B(2,45);
+    A1(5, 200), A2(3, 130), B(2, 45);
     private int numItems;
     private int price;
 
     //constructor
-    offer(final int numItems, final int price){
+    offer(final int numItems, final int price) {
         this.numItems = numItems;
         this.price = price;
     }
@@ -74,11 +90,13 @@ enum specialOffer {
     private item freeItem;
 
     //constructor
-    specialOffer(final int numItems, final item freeItem){
+    specialOffer(final int numItems, final item freeItem) {
         this.numItems = numItems;
         this.freeItem = freeItem;
     }
 }
+
+
 public class CheckoutSolution {
     public Integer checkout(String skus) {
 
@@ -109,3 +127,4 @@ public class CheckoutSolution {
         return -1;
     }
 }
+
