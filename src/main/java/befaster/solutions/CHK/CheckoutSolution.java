@@ -165,21 +165,21 @@ public class CheckoutSolution {
         // we cannot create a recursive method to handle all the products
         // first: handle items with special offers
         for (item i : item.values()) {
-            if(i.isHaveSpecialOffer()){
+            if (i.isHaveSpecialOffer()) {
                 // calculate price by item/product and get the remain items in the collection
                 items = processItemCollection(items, i);
             }
         }
         // second: handle items with pack offers
         for (item i : item.values()) {
-            if(i.isHaveOffer()){
+            if (i.isHaveOffer()) {
                 // calculate price by item/product and get the remain items in the collection
                 items = processItemCollection(items, i);
             }
         }
         // third: handle items without any kind of offer
         for (item i : item.values()) {
-            if(!i.isHaveSpecialOffer() && !i.isHaveOffer()){
+            if (!i.isHaveSpecialOffer() && !i.isHaveOffer()) {
                 // calculate price by item/product and get the remain items in the collection
                 items = processItemCollection(items, i);
             }
@@ -198,8 +198,6 @@ public class CheckoutSolution {
     private List<String> processItemCollection(List<String> items, item product) {
         // collection of items by product
         List<String> collect = items.stream().filter(i -> i.equals(product.getItemRef())).collect(Collectors.toList());
-        // total items by product
-        //int totalItems = collect.size();
 
         // if the list not empty process the product, if the list is empty the total price of item/product will be zero
         // and then will not be necessary add the product price to the total price of basket
@@ -220,10 +218,14 @@ public class CheckoutSolution {
                 }
             } else if (product.isHaveOffer()) {
                 // second: with offers
-                for(offer o : product.getOffers()){
+                int remainItems = 0;
+                for (offer o : product.getOffers()) {
                     sumToTotalPrice((collect.size() / o.getNumItems()) * o.getPrice());
+                    // local remain items by product
+                    remainItems = collect.size() % o.getNumItems();
                 }
-
+                // sum the price of local remain items by product
+                sumToTotalPrice(remainItems * product.getPrice());
             } else {
                 // third: normal product
                 sumToTotalPrice(collect.size() * product.getPrice());
@@ -232,6 +234,7 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
 
