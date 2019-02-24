@@ -225,7 +225,8 @@ public class CheckoutSolution {
                     // calculate the remain items and remove the number of items describe by special offer
                     // Be careful when the special offer pack get free n items of the same item reference
                     if(so.getFreeItem().getItemRef().equals(product.getItemRef())){
-
+                        // calculate packs
+                        int packs = collect.size() / so.getNumItems();
                     }
                     for (int i = (collect.size() / so.getNumItems()); i > 0; i--) {
                         items.remove(so.getFreeItem().getItemRef());

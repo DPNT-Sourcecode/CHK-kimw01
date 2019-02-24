@@ -15,6 +15,21 @@
  - {"method":"checkout","params":["FFFF"],"id":"CHK_R3_041"}, expected: 30, got: 20
  CASE2: 2 packs of 2F, get free item before calculate if there is any other pack of 2F
  - {"method":"checkout","params":["FFFFFF"],"id":"CHK_R3_042"}, expected: 40, got: 30
- CASE3: 3 packs of 2F, first pack get free one, second pack get free one, the tihrd
+ CASE3: 3 packs of 2F, first pack get free one, second pack get free one, no there is third pack because is free two items of them
 
- Wrong!: this means that when the special offer pack get one free item of the same product the free is out of the pack offer
+Conclusions:
+Calculate pack by pack and get free one item by pack, such as below:
+FFFFFFFFFFFF = 6 packs
+
+1: FFFFFFFFFFF = 6 packs
+2: FFFFFFFFFF = 5 packs
+3: FFFFFFFFF = 4
+4: FFFFFFFF = 4
+5: FFFFFFF = 3
+6: FFFFFF = 3
+7: FFFFF = 2
+8: FFFF = 2
+9: FFF = 1
+10: FF = 1
+20
+.....
