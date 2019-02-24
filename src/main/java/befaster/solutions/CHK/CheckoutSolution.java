@@ -226,10 +226,16 @@ public class CheckoutSolution {
                     // Be careful when the special offer pack get free n items of the same item reference
                     if(so.getFreeItem().getItemRef().equals(product.getItemRef())){
                         // calculate packs
-                        int packs = collect.size() / so.getNumItems();
-                    }
-                    for (int i = (collect.size() / so.getNumItems()); i > 0; i--) {
-                        items.remove(so.getFreeItem().getItemRef());
+                        for (int i = (collect.size() / so.getNumItems()); i > 0; i--) {
+                            if(items.size()>so.getNumItems()){
+                                items = items.subList(0, items.size()-1);
+                            }
+                        }
+
+                    }else {
+                        for (int i = (collect.size() / so.getNumItems()); i > 0; i--) {
+                            items.remove(so.getFreeItem().getItemRef());
+                        }
                     }
                     // because the product passed don't have a pack offer
                     // will be calculate de price by normal way after remove the free items
