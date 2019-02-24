@@ -165,7 +165,7 @@ public class CheckoutSolution {
         // validate illegal entries cloning the list of items
         List<String> clone = items.stream().collect(Collectors.toList());
         // validate illegal input, remove legal product ref from clone list
-        for(item i: item.values()){
+        for (item i : item.values()) {
             clone.removeIf(product -> product.equals(i.getItemRef()));
         }
 
@@ -227,8 +227,9 @@ public class CheckoutSolution {
                         items.remove(so.getFreeItem().getItemRef());
                     }
                     // because the product passed don't have a pack offer
-                    // will be calculate de price by normal way
-                    sumToTotalPrice(collect.size() * product.getPrice());
+                    // will be calculate de price by normal way after remove the free items
+                    List<String> col = items.stream().filter(i -> i.equals(product.getItemRef())).collect(Collectors.toList());
+                    sumToTotalPrice(col.size() * product.getPrice());
                 }
             } else if (product.isHaveOffer()) {
                 // second: with offers
@@ -248,6 +249,7 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
 
