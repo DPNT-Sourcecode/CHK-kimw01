@@ -45,12 +45,39 @@ enum item {
 
 // offer linked to item
 enum offer {
+    // numItems, price
+    A1(5,200), A2(3,130), B(2,45);
+    private int numItems;
+    private int price;
 
+    //constructor
+    offer(final int numItems, final int price){
+        this.numItems = numItems;
+        this.price = price;
+    }
+
+    public int getNumItems() {
+        return numItems;
+    }
+
+    public int getPrice() {
+        return price;
+    }
 }
 
 // specialOffer linked to item
 enum specialOffer {
+    // numItems, free item object
+    E(2, item.B);
 
+    private int numItems;
+    private item freeItem;
+
+    //constructor
+    specialOffer(final int numItems, final item freeItem){
+        this.numItems = numItems;
+        this.freeItem = freeItem;
+    }
 }
 public class CheckoutSolution {
     public Integer checkout(String skus) {
@@ -82,7 +109,3 @@ public class CheckoutSolution {
         return -1;
     }
 }
-
-
-
-
