@@ -116,6 +116,19 @@ enum specialOffer {
 
 
 public class CheckoutSolution {
+
+    /*
+    * final price
+     */
+    private int totalPrice;
+
+    /*
+    * method to sum the total price by item to final price
+     */
+    private void sumToTotalPrice(int price){
+        this.totalPrice = totalPrice + price;
+    }
+
     public Integer checkout(String skus) {
 
         // special offers 2E get one B free
@@ -142,6 +155,9 @@ public class CheckoutSolution {
         if (clone.size() > 0) {
             return -1;
         }
+
+        // first: handle special offers
         return -1;
     }
 }
+
