@@ -165,14 +165,18 @@ public class CheckoutSolution {
     }
 
     /**
-     *
-     * @param items
-     * @param product
-     * @return
+     * To handle the item/product and offers
+     * @param items list items on basket to calculate the totalPrice by item
+     * @param product item to handle
+     * @return List of remain items on basket to handle
      */
     private List<String> processItemCollection(List<String> items, item product){
-        return 
+        // collection of items by product
+        List<String> collect = items.stream().filter(i -> i.equals(product.getItemRef())).collect(Collectors.toList());
+        
+        return items;
     }
 }
+
 
 
