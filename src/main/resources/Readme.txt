@@ -17,10 +17,8 @@ D=15
 E=40+40 = 80
 Total 525
 
- - {"method":"checkout","params":["B"],"id":"CHK_R2_004"}, expected: 30, got: 80
- - {"method":"checkout","params":["C"],"id":"CHK_R2_005"}, expected: 20, got: 100
- - {"method":"checkout","params":["D"],"id":"CHK_R2_006"}, expected: 15, got: 115
+ - {"method":"checkout","params":["FF"],"id":"CHK_R3_039"}, expected: 20, got: 10
+ - {"method":"checkout","params":["FFFF"],"id":"CHK_R3_041"}, expected: 30, got: 20
+ - {"method":"checkout","params":["FFFFFF"],"id":"CHK_R3_042"}, expected: 40, got: 30
 
- IMPOSSIBLE!! THE TEST PASS! WHY? the total price it has not reset when call checkout, big mistake in this design!
-
- PAUSE!
+ this means that when the special offer pack get one free item of the same product the free is out of the pack offer
