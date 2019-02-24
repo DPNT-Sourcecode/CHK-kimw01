@@ -133,8 +133,14 @@ public class CheckoutSolution {
         return totalPrice;
     }
 
+    public void setTotalPrice(int totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
     public Integer checkout(String skus) {
 
+        // RESET the totalPrice every time that some call checkout
+        setTotalPrice(0);
         // special offers 2E get one B free
         // offers 3A = 130, 5A = 200, 2B = 45
         // prices A = 50, B = 30, C = 20, D = 15, E = 40
@@ -234,5 +240,6 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
