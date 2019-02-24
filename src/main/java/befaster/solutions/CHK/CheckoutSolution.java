@@ -57,9 +57,9 @@ enum item {
     }
 
     // get specialOffers by item
-    public ArrayList<specialOffer> getSpecialOffers(){
+    public ArrayList<specialOffer> getSpecialOffers() {
         ArrayList<specialOffer> specialOffers = new ArrayList<specialOffer>();
-        if(this.equals(E)){
+        if (this.equals(E)) {
             specialOffers.add(specialOffer.E);
         }
 
@@ -118,14 +118,14 @@ enum specialOffer {
 public class CheckoutSolution {
 
     /*
-    * final price
+     * final price
      */
     private int totalPrice;
 
     /*
-    * method to sum the total price by item to final price
+     * method to sum the total price by item to final price
      */
-    private void sumToTotalPrice(int price){
+    private void sumToTotalPrice(int price) {
         this.totalPrice = totalPrice + price;
     }
 
@@ -158,6 +158,9 @@ public class CheckoutSolution {
 
         // manage collection of items/products by type of taxonomy (special offers, pack offers, normal items)
         // first: handle items with special offers
+        for (item i : item.values()) {
+            
+        }
         // second: handle items with pack offers
         // third: handle items without any kind of offer
 
@@ -166,11 +169,12 @@ public class CheckoutSolution {
 
     /**
      * To handle the item/product and offers
-     * @param items list items on basket to calculate the totalPrice by item
+     *
+     * @param items   list items on basket to calculate the totalPrice by item
      * @param product item to handle
      * @return List of remain items on basket to handle
      */
-    private List<String> processItemCollection(List<String> items, item product){
+    private List<String> processItemCollection(List<String> items, item product) {
         // collection of items by product
         List<String> collect = items.stream().filter(i -> i.equals(product.getItemRef())).collect(Collectors.toList());
         // total items by product
@@ -178,22 +182,22 @@ public class CheckoutSolution {
 
         // if the list not empty process the product, if the list is empty the total price of item/product will be zero
         // and then will not be necessary add the product price to the total price of basket
-        if(!collect.isEmpty()){
+        if (!collect.isEmpty()) {
             // first: with special offers
-            if(product.isHaveSpecialOffer()){
+            if (product.isHaveSpecialOffer()) {
                 // for each product with special offer
-                for(specialOffer so : product.getSpecialOffers()){
+                for (specialOffer so : product.getSpecialOffers()) {
                     // because the special offer means that some products are free
                     // they will be remove from collection for the next calculation pack of items/products
                     // calculate the remain items and remove the number of items describe by special offer
-                    for (int i = (totalItems / so.getNumItems()); i >0; i--){
+                    for (int i = (totalItems / so.getNumItems()); i > 0; i--) {
                         items.remove(so.getFreeItem().getItemRef());
                     }
                     // because the product passed don't have a pack offer
                     // will be calculate de price by normal way
                     sumToTotalPrice(totalItems * product.getPrice());
                 }
-            } else if(product.isHaveOffer()){
+            } else if (product.isHaveOffer()) {
                 // second: with offers
 
             } else {
@@ -204,7 +208,3 @@ public class CheckoutSolution {
         return items;
     }
 }
-
-
-
-
