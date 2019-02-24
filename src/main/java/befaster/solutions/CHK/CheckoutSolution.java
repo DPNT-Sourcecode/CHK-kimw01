@@ -76,16 +76,16 @@ enum item {
             offers.add(offer.A2);
         } else if (this.equals(B)) {
             offers.add(offer.B);
-        } else if(this.equals(H)){
+        } else if (this.equals(H)) {
             offers.add(offer.H1);
             offers.add(offer.H2);
-        } else if(this.equals(K)){
+        } else if (this.equals(K)) {
             offers.add(offer.K);
-        } else if(this.equals(P)){
+        } else if (this.equals(P)) {
             offers.add(offer.P);
-        } else if(this.equals(Q)){
+        } else if (this.equals(Q)) {
             offers.add(offer.Q);
-        } else if(this.equals(V)){
+        } else if (this.equals(V)) {
             offers.add(offer.V1);
             offers.add(offer.V2);
         }
@@ -100,11 +100,11 @@ enum item {
             specialOffers.add(specialOffer.E);
         } else if (this.equals(F)) {
             specialOffers.add(specialOffer.F);
-        } else if(this.equals(N)){
+        } else if (this.equals(N)) {
             specialOffers.add(specialOffer.N);
-        } else if(this.equals(R)){
+        } else if (this.equals(R)) {
             specialOffers.add(specialOffer.R);
-        } else if(this.equals(U)){
+        } else if (this.equals(U)) {
             specialOffers.add(specialOffer.U);
         }
 
@@ -117,7 +117,16 @@ enum offer {
     // to manage the groups of items of the same item
     // will be necessary manage the groups in descendent order by numItems
     // numItems, price
-    A1(5, 200), A2(3, 130), B(2, 45);
+    A1(5, 200),
+    A2(3, 130),
+    B(2, 45),
+    H1(10, 80),
+    H2(5, 45),
+    K(2, 150),
+    P(5, 200),
+    Q(3, 80),
+    V1(3, 130),
+    V2(2, 90);
     private int numItems;
     private int price;
 
@@ -139,7 +148,11 @@ enum offer {
 // specialOffer linked to item
 enum specialOffer {
     // numItems, free item object
-    E(2, item.B), F(2, item.F);
+    E(2, item.B),
+    F(2, item.F),
+    N(3, item.M),
+    R(3, item.Q),
+    U(3, item.U);
 
     private int numItems;
     private item freeItem;
@@ -305,5 +318,6 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
