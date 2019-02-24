@@ -226,7 +226,7 @@ public class CheckoutSolution {
                     // Be careful when the special offer pack get free n items of the same item reference
                     if(so.getFreeItem().getItemRef().equals(product.getItemRef())){
                         // calculate packs
-                        List<String> remainItems = items.subList(0, items.size());
+                        List<String> remainItems = collect.subList(0, collect.size());
                         while(remainItems.iterator().hasNext() && ((remainItems.size() / so.getNumItems())>0)){
                             if(remainItems.size()>so.getNumItems()) {
                                 // sublist of items remain, remove 3 (2 pack and 1 free)
@@ -264,4 +264,5 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
