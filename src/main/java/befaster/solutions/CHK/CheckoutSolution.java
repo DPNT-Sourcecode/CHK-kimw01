@@ -164,8 +164,11 @@ public class CheckoutSolution {
         // special validation for illegal inputs, illegal items
         // validate illegal entries cloning the list of items
         List<String> clone = items.stream().collect(Collectors.toList());
-        // validate illegal input, if there is any illegal input return -1
-        clone.removeIf(item -> item.equals("A") | item.equals("B") | item.equals("C") | item.equals("D") | item.equals("E")  | item.equals("F"));
+        // validate illegal input, remove legal product ref from clone list
+        for(item i: item.values()){
+            clone.removeIf(product -> product.equals(i.getItemRef()));
+        }
+
         // if the size of list is greater than 0 this means that the list contains illegal items or references
         if (clone.size() > 0) {
             return -1;
@@ -245,5 +248,6 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
