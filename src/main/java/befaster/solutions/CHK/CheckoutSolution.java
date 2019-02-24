@@ -55,6 +55,16 @@ enum item {
 
         return offers;
     }
+
+    // get specialOffers by item
+    public ArrayList<specialOffer> getSpecialOffers(){
+        ArrayList<specialOffer> specialOffers = new ArrayList<specialOffer>();
+        if(this.equals(E)){
+            specialOffers.add(specialOffer.E);
+        }
+
+        return specialOffers;
+    }
 }
 
 // offer linked to item
@@ -93,6 +103,14 @@ enum specialOffer {
     specialOffer(final int numItems, final item freeItem) {
         this.numItems = numItems;
         this.freeItem = freeItem;
+    }
+
+    public int getNumItems() {
+        return numItems;
+    }
+
+    public item getFreeItem() {
+        return freeItem;
     }
 }
 
