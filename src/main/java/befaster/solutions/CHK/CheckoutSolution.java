@@ -25,6 +25,22 @@ enum item {
         this.haveOffer = haveOffer;
         this.haveSpecialOffer = haveSpecialOffer;
     }
+
+    public String getItemRef() {
+        return itemRef;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public boolean isHaveOffer() {
+        return haveOffer;
+    }
+
+    public boolean isHaveSpecialOffer() {
+        return haveSpecialOffer;
+    }
 }
 
 // offer linked to item
@@ -66,6 +82,7 @@ public class CheckoutSolution {
         return -1;
     }
 }
+
 
 
 
