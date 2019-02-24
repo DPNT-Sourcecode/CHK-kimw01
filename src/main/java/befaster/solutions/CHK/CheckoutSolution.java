@@ -218,9 +218,9 @@ public class CheckoutSolution {
                 }
             } else if (product.isHaveOffer()) {
                 // second: with offers
-                int remainItems = 0;
+                int remainItems = collect.size();
                 for (offer o : product.getOffers()) {
-                    sumToTotalPrice((collect.size() / o.getNumItems()) * o.getPrice());
+                    sumToTotalPrice(( remainItems / o.getNumItems()) * o.getPrice());
                     // local remain items by product
                     remainItems = collect.size() % o.getNumItems();
                 }
@@ -234,9 +234,3 @@ public class CheckoutSolution {
         return items;
     }
 }
-
-
-
-
-
-
