@@ -16,3 +16,7 @@ C=20
 D=15
 E=40+40 = 80
 Total 525
+
+ - {"method":"checkout","params":["B"],"id":"CHK_R2_004"}, expected: 30, got: 80
+ - {"method":"checkout","params":["C"],"id":"CHK_R2_005"}, expected: 20, got: 100
+ - {"method":"checkout","params":["D"],"id":"CHK_R2_006"}, expected: 15, got: 115
