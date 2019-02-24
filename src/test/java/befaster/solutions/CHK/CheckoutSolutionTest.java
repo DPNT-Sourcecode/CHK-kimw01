@@ -20,7 +20,7 @@ public class CheckoutSolutionTest {
     // no decimals, only integers
 
     @Test
-    public void specialDeployTest(){
+    public void simpleTest(){
         assertThat(checkout.checkout("A"), equalTo(50));
         assertThat(checkout.checkout("B"), equalTo(30));
         assertThat(checkout.checkout("C"), equalTo(20));
@@ -50,7 +50,7 @@ public class CheckoutSolutionTest {
 
     @Test
     public void simpleItemCTest() {
-        assertThat(checkout.checkout("CCC"), equalTo(20));
+        assertThat(checkout.checkout("CCC"), equalTo(60));
     }
 
     @Test
@@ -112,3 +112,4 @@ public class CheckoutSolutionTest {
         assertThat(checkout.checkout("FABBACxCDDAE@F"), equalTo(-1));
     }
 }
+

@@ -94,7 +94,7 @@ enum offer {
 // specialOffer linked to item
 enum specialOffer {
     // numItems, free item object
-    E(2, item.B);
+    E(2, item.B), F(2, item.E);
 
     private int numItems;
     private item freeItem;
@@ -141,7 +141,7 @@ public class CheckoutSolution {
 
         // RESET: the totalPrice every time that some call checkout
         setTotalPrice(0);
-        // special offers 2E get one B free
+        // special offers 2E get one B free, 2F get one F free
         // offers 3A = 130, 5A = 200, 2B = 45
         // prices A = 50, B = 30, C = 20, D = 15, E = 40
         // steps:
@@ -238,3 +238,4 @@ public class CheckoutSolution {
         return items;
     }
 }
+
