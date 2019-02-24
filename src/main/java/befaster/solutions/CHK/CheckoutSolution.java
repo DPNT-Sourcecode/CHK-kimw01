@@ -223,6 +223,10 @@ public class CheckoutSolution {
                     // because the special offer means that some products are free
                     // they will be remove from collection for the next calculation pack of items/products
                     // calculate the remain items and remove the number of items describe by special offer
+                    // Be careful when the special offer pack get free n items of the same item reference
+                    if(so.getFreeItem().getItemRef().equals(product.getItemRef())){
+
+                    }
                     for (int i = (collect.size() / so.getNumItems()); i > 0; i--) {
                         items.remove(so.getFreeItem().getItemRef());
                     }
@@ -248,3 +252,4 @@ public class CheckoutSolution {
         return items;
     }
 }
+

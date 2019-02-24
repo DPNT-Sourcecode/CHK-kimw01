@@ -65,7 +65,9 @@ public class CheckoutSolutionTest {
 
     @Test
     public void simpleItemFTest() {
-        assertThat(checkout.checkout("FFFF"), equalTo(20));
+        assertThat(checkout.checkout("FF"), equalTo(10));
+        assertThat(checkout.checkout("FFFF"), equalTo(30));
+        assertThat(checkout.checkout("FFFFFF"), equalTo(40));
     }
 
     @Test
@@ -112,3 +114,4 @@ public class CheckoutSolutionTest {
         assertThat(checkout.checkout("FABBACxCDDAE@F"), equalTo(-1));
     }
 }
+
