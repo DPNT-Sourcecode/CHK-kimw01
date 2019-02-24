@@ -60,13 +60,18 @@ public class CheckoutSolutionR2Test {
     }
 
     @Test
+    public void simpleCombinationItemsTest() {
+        assertThat(checkout.checkout("ABCDE"), equalTo(155));
+    }
+
+    @Test
     public void combinationItemsTest() {
-        assertThat(checkout.checkout("ADADABCCDDBBBAC"), equalTo(390));
+        assertThat(checkout.checkout("ABAAEACDAABAAEA"), equalTo(525));
     }
 
     @Test
     public void combinationSpecialOfferBFreeTest(){
-        assertThat(checkout.checkout("ADADABCCDDBBBAC"), equalTo(390));
+        assertThat(checkout.checkout("AABCDDEECDE"), equalTo(305));
     }
 
     @Test
@@ -98,5 +103,6 @@ public class CheckoutSolutionR2Test {
         assertThat(checkout.checkout("FABBACCDDA"), equalTo(-1));
     }
 }
+
 
 
