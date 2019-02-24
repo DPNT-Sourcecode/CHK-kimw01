@@ -14,11 +14,20 @@ public class CheckoutSolutionR2Test {
         checkout = new CheckoutSolution();
     }
 
-    // special offers 2E get one B free
+    // special offers 2E get one B free, 2F get one F free
     // offers 3A = 130, 5A = 200, 2B = 45
-    // prices A = 50, B = 30, C = 20, D = 15, E = 40
+    // prices A = 50, B = 30, C = 20, D = 15, E = 40, F = 10
     // no decimals, only integers
 
+    @Test
+    public void specialDeployTest(){
+        assertThat(checkout.checkout("A"), equalTo(100));
+        assertThat(checkout.checkout("B"), equalTo(100));
+        assertThat(checkout.checkout("C"), equalTo(100));
+        assertThat(checkout.checkout("D"), equalTo(100));
+        assertThat(checkout.checkout("E"), equalTo(100));
+        assertThat(checkout.checkout("F"), equalTo(100));
+    }
     @Test
     public void simpleATest() {
         assertThat(checkout.checkout("AA"), equalTo(100));
@@ -108,3 +117,4 @@ public class CheckoutSolutionR2Test {
         assertThat(checkout.checkout("FABBACCDDA"), equalTo(-1));
     }
 }
+
