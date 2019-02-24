@@ -237,14 +237,17 @@ public class CheckoutSolution {
                             // add price of two items of pack to total price until finish the loop
                             sumToTotalPrice(so.getNumItems() * product.getPrice());
                         }
+                        // remain items out pack
+                        sumToTotalPrice(remainItems.size() * product.getPrice());
                     }else {
                         for (int i = (collect.size() / so.getNumItems()); i > 0; i--) {
                             items.remove(so.getFreeItem().getItemRef());
                         }
+                        // because the product passed don't have a pack offer
+                        // will be calculate de price by normal way after remove the free items
+                        sumToTotalPrice(items.stream().filter(i -> i.equals(product.getItemRef())).collect(Collectors.toList()).size() * product.getPrice());
                     }
-                    // because the product passed don't have a pack offer
-                    // will be calculate de price by normal way after remove the free items
-                    sumToTotalPrice(items.stream().filter(i -> i.equals(product.getItemRef())).collect(Collectors.toList()).size() * product.getPrice());
+
                 }
             } else if (product.isHaveOffer()) {
                 // second: with offers
@@ -264,5 +267,6 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
