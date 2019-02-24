@@ -22,3 +22,5 @@ Total 525
  - {"method":"checkout","params":["D"],"id":"CHK_R2_006"}, expected: 15, got: 115
 
  IMPOSSIBLE!! THE TEST PASS! WHY? the total price it has not reset when call checkout, big mistake in this design!
+
+ PAUSE!
