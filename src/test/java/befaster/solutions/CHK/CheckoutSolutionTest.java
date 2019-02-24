@@ -6,7 +6,7 @@ import org.junit.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
-public class CheckoutSolutionR2Test {
+public class CheckoutSolutionTest {
     private CheckoutSolution checkout;
 
     @Before
@@ -54,6 +54,21 @@ public class CheckoutSolutionR2Test {
     }
 
     @Test
+    public void simpleItemDTest() {
+        assertThat(checkout.checkout("DDDD"), equalTo(60));
+    }
+
+    @Test
+    public void simpleItemETest() {
+        assertThat(checkout.checkout("EEE"), equalTo(120));
+    }
+
+    @Test
+    public void simpleItemFTest() {
+        assertThat(checkout.checkout("FFFF"), equalTo(20));
+    }
+
+    @Test
     public void simpleCombinationItemsTest() {
         assertThat(checkout.checkout("ABCDE"), equalTo(155));
     }
@@ -97,5 +112,3 @@ public class CheckoutSolutionR2Test {
         assertThat(checkout.checkout("FABBACxCDDAE@F"), equalTo(-1));
     }
 }
-
-
