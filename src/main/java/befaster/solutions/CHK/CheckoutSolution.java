@@ -199,7 +199,7 @@ public class CheckoutSolution {
         // collection of items by product
         List<String> collect = items.stream().filter(i -> i.equals(product.getItemRef())).collect(Collectors.toList());
         // total items by product
-        int totalItems = collect.size();
+        //int totalItems = collect.size();
 
         // if the list not empty process the product, if the list is empty the total price of item/product will be zero
         // and then will not be necessary add the product price to the total price of basket
@@ -211,24 +211,28 @@ public class CheckoutSolution {
                     // because the special offer means that some products are free
                     // they will be remove from collection for the next calculation pack of items/products
                     // calculate the remain items and remove the number of items describe by special offer
-                    for (int i = (totalItems / so.getNumItems()); i > 0; i--) {
+                    for (int i = (collect.size() / so.getNumItems()); i > 0; i--) {
                         items.remove(so.getFreeItem().getItemRef());
                     }
                     // because the product passed don't have a pack offer
                     // will be calculate de price by normal way
-                    sumToTotalPrice(totalItems * product.getPrice());
+                    sumToTotalPrice(collect.size() * product.getPrice());
                 }
             } else if (product.isHaveOffer()) {
                 // second: with offers
+                for(offer o : product.getOffers()){
+                    sumToTotalPrice((collect.size() / o.getNumItems()) * o.getPrice());
+                }
 
             } else {
                 // third: normal product
-
+                sumToTotalPrice(collect.size() * product.getPrice());
             }
         }
         return items;
     }
 }
+
 
 
 
