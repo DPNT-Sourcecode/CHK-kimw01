@@ -76,6 +76,18 @@ enum item {
             offers.add(offer.A2);
         } else if (this.equals(B)) {
             offers.add(offer.B);
+        } else if(this.equals(H)){
+            offers.add(offer.H1);
+            offers.add(offer.H2);
+        } else if(this.equals(K)){
+            offers.add(offer.K);
+        } else if(this.equals(P)){
+            offers.add(offer.P);
+        } else if(this.equals(Q)){
+            offers.add(offer.Q);
+        } else if(this.equals(V)){
+            offers.add(offer.V1);
+            offers.add(offer.V2);
         }
 
         return offers;
@@ -88,6 +100,12 @@ enum item {
             specialOffers.add(specialOffer.E);
         } else if (this.equals(F)) {
             specialOffers.add(specialOffer.F);
+        } else if(this.equals(N)){
+            specialOffers.add(specialOffer.N);
+        } else if(this.equals(R)){
+            specialOffers.add(specialOffer.R);
+        } else if(this.equals(U)){
+            specialOffers.add(specialOffer.U);
         }
 
         return specialOffers;
@@ -287,4 +305,5 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
