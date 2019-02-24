@@ -129,6 +129,10 @@ public class CheckoutSolution {
         this.totalPrice = totalPrice + price;
     }
 
+    public int getTotalPrice() {
+        return totalPrice;
+    }
+
     public Integer checkout(String skus) {
 
         // special offers 2E get one B free
@@ -156,7 +160,9 @@ public class CheckoutSolution {
             return -1;
         }
 
-        // manage collection of items/products by type of taxonomy (special offers, pack offers, normal items)
+        // manage collection of items/products by type of taxonomy (1:special offers, 2:pack offers, 3:normal items)
+        // important handle the items in taxonomy order to discard free items before calculate pack offers
+        // for the importancy 
         // first: handle items with special offers
         for (item i : item.values()) {
             if(i.isHaveSpecialOffer()){
@@ -178,8 +184,8 @@ public class CheckoutSolution {
                 items = processItemCollection(items, i);
             }
         }
-        
-        return -1;
+
+        return getTotalPrice();
     }
 
     /**
@@ -223,4 +229,5 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
