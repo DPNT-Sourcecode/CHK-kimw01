@@ -101,7 +101,7 @@ enum offer {
 // specialOffer linked to item
 enum specialOffer {
     // numItems, free item object
-    E(2, item.B), F(2, item.E);
+    E(2, item.B), F(2, item.F);
 
     private int numItems;
     private item freeItem;
@@ -249,6 +249,7 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
 
