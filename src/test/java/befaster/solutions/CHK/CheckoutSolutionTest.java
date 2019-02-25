@@ -36,9 +36,15 @@ public class CheckoutSolutionTest {
     }
 
     @Test
+    public void totalPriceNoOffersTest(){
+        assertThat(checkout.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ"), equalTo(853));
+    }
+
+    @Test
     public void isolateTest(){
         assertThat(checkout.checkout("Z"), equalTo(45));
     }
+
     @Test
     public void oneTest() {
         assertThat(checkout.checkout("ABCDEF"), equalTo(165));
@@ -145,3 +151,4 @@ public class CheckoutSolutionTest {
         assertThat(checkout.checkout("FABBACxCDDAE@F"), equalTo(-1));
     }
 }
+

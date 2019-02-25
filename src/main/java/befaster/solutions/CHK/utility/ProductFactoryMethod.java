@@ -9,16 +9,16 @@ public interface ProductFactoryMethod {
         C("C"),
         D("D"),
         E("E"),
-        F("F"),,
-        G("G"),,
-        H("H"),,
-        I("I"),,
-        J("J"),,
-        K("K"),,
-        L("L"),,
-        M("M"),,
-        N("N"),,
-        O("O"),,
+        F("F"),
+        G("G"),
+        H("H"),
+        I("I"),
+        J("J"),
+        K("K"),
+        L("L"),
+        M("M"),
+        N("N"),
+        O("O"),
         P("P"),
         Q("Q"),
         R("R"),
@@ -38,3 +38,4 @@ public interface ProductFactoryMethod {
     }
     Product createProduct(product productRef);
 }
+
