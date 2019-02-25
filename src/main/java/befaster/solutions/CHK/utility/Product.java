@@ -4,16 +4,22 @@ import java.util.List;
 
 public abstract class Product {
 
+    private String productRef;
     private Integer price;
     private boolean haveOffer;
     private boolean haveSpecialOffer;
     private boolean haveCombinationOffer;
 
-    public Product(final Integer price, final boolean haveOffer, final boolean haveSpecialOffer, final boolean haveCombinationOffer){
+    public Product(final String productRef, final Integer price, final boolean haveOffer, final boolean haveSpecialOffer, final boolean haveCombinationOffer){
+        this.productRef = productRef;
         this.price = price;
         this.haveOffer = haveOffer;
         this.haveSpecialOffer = haveSpecialOffer;
         this.haveCombinationOffer = haveCombinationOffer;
+    }
+
+    public String getProductRef() {
+        return productRef;
     }
 
     public Integer getPrice() {
@@ -33,7 +39,8 @@ public abstract class Product {
     }
 
     // abstract methods of operations
-    // TODO
+    public abstract List<Offer> getListOffer();
+
     public abstract void priceOperation(Integer price, List<String> basketItems);
 
     public abstract void priceOfferOperation(Integer price);
@@ -42,6 +49,7 @@ public abstract class Product {
 
     public abstract void priceCombinationOfferOperation(Integer price);
 }
+
 
 
 
