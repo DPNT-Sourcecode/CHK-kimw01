@@ -79,17 +79,28 @@ public class CheckoutSolution {
         return getTotalPrice();
     }
 
+    /**
+     * handling of offers with free items
+     * @param items
+     * @param products
+     */
     private void processSpecialOffers(final List<String> items, final List<Product> products){
         if(!products.isEmpty()){
             for(Product product:products){
                 for(SpecialOffer so: product.getSpecialOffers()){
                     int numPack = Collections.frequency(items, product.getProductRef()) / so.getNumItems();
-                    for()
+                    while(numPack>0){
+                        for(ProductFactoryMethod.product freeProduct : so.getFreeProducts()){
+                           Integer price = new ProductFactory().createProduct(freeProduct).getPrice();
+                           sumToTotalPrice(-price);
+                        }
+                    }
                 }
             }
         }
     }
 }
+
 
 
 

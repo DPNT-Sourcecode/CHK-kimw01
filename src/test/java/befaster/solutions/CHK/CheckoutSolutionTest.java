@@ -19,6 +19,10 @@ public class CheckoutSolutionTest {
     // prices A = 50, B = 30, C = 20, D = 15, E = 40, F = 10
     // no decimals, only integers
     @Test
+    public void specialOfferFreeItems(){
+
+    }
+    @Test
     public void bigTest() {
         assertThat(checkout.checkout("NNNMM"), equalTo(135));
         assertThat(checkout.checkout("RRRQQ"), equalTo(180));
@@ -151,3 +155,4 @@ public class CheckoutSolutionTest {
         assertThat(checkout.checkout("FABBACxCDDAE@F"), equalTo(-1));
     }
 }
+
