@@ -1,6 +1,7 @@
 package befaster.solutions.CHK;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -172,20 +173,6 @@ enum specialOffer {
     }
 }
 
-enum buyAnyOf{
-    S(3,new ArrayList<String>()),
-    T(),
-    X(),
-    Y(),
-    Z();
-    private int numItems;
-    private List<String> listItemRef;
-
-    buyAnyOf(final int numItems, final List<String> listItemRef){
-        this.numItems = numItems;
-        this.listItemRef = listItemRef;
-    }
-}
 public class CheckoutSolution {
 
     /*
@@ -241,6 +228,7 @@ public class CheckoutSolution {
         // manage collection of items/products by type of taxonomy (1:special offers, 2:pack offers, 3:normal items)
         // important: handle the items in taxonomy order to discard free items before calculate pack offers
         // we cannot create a recursive method to handle all the products
+        //
         // first: handle items with special offers
         for (item i : item.values()) {
             if (i.isHaveSpecialOffer()) {
@@ -331,6 +319,7 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
 
