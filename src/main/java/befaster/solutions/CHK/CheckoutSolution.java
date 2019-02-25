@@ -3,6 +3,7 @@ package befaster.solutions.CHK;
 import befaster.solutions.CHK.utility.Product;
 import befaster.solutions.CHK.utility.ProductFactory;
 import befaster.solutions.CHK.utility.ProductFactoryMethod;
+import befaster.solutions.CHK.utility.SpecialOffer;
 import ch.qos.logback.core.net.SyslogOutputStream;
 
 import java.util.ArrayList;
@@ -79,10 +80,13 @@ public class CheckoutSolution {
 
     private void processSpecialOffers(final List<String> items, final List<Product> products){
         if(!products.isEmpty()){
-
             for(Product product:products){
-
+                for(SpecialOffer so: product.getSpecialOffers()){
+                    items.stream().filter(i -> i.equals(product.getProductRef())).collect(Collectors.toList()).size() / so.getNumItems();
+                    so.getFreeProducts()
+                }
             }
         }
     }
 }
+
