@@ -7,11 +7,11 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
 public class CheckoutSolutionTest {
-    private CheckoutSolutionBAK checkout;
+    private CheckoutSolution checkout;
 
     @Before
     public void setUp() {
-        checkout = new CheckoutSolutionBAK();
+        checkout = new CheckoutSolution();
     }
 
     // special offers 2E get one B free, 2F get one F free
@@ -151,4 +151,5 @@ public class CheckoutSolutionTest {
         assertThat(checkout.checkout("FABBACxCDDAE@F"), equalTo(-1));
     }
 }
+
 
