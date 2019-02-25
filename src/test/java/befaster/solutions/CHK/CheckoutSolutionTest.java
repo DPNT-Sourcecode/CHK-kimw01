@@ -36,6 +36,10 @@ public class CheckoutSolutionTest {
     }
 
     @Test
+    public void isolateTest(){
+        assertThat(checkout.checkout("STX"), equalTo(45));
+    }
+    @Test
     public void oneTest() {
         assertThat(checkout.checkout("ABCDEF"), equalTo(165));
         assertThat(checkout.checkout("ABCDEFABCDEF"), equalTo(300));
@@ -141,3 +145,4 @@ public class CheckoutSolutionTest {
         assertThat(checkout.checkout("FABBACxCDDAE@F"), equalTo(-1));
     }
 }
+

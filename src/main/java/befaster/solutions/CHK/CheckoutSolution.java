@@ -346,10 +346,13 @@ public class CheckoutSolution {
                                 items.remove(items.indexOf(i.getItemRef()));
                                 countPack ++;
                             }
-                            if(countPack==3){
+                            if(countPack==product.getOffers().get(0).getNumItems()){
                                 break;
                             }
                         }
+                    }
+                    if(countPack==product.getOffers().get(0).getNumItems()){
+                        sumToTotalPrice(product.getOffers().get(0).getPrice());
                     }
                 }
 
@@ -403,5 +406,6 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
