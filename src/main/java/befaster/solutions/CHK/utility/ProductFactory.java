@@ -69,6 +69,7 @@ public class ProductFactory implements ProductFactoryMethod {
                 combinationOffers.add(new CombinationOffer(3,45, Arrays.asList(ProductFactoryMethod.product.T,ProductFactoryMethod.product.X,ProductFactoryMethod.product.Y,ProductFactoryMethod.product.Z)));
                 return new Product(productRef, 20, offers, specialOffers, combinationOffers);
             case T:
+                combinationOffers.add(new CombinationOffer(3,45, Arrays.asList(ProductFactoryMethod.product.S,ProductFactoryMethod.product.X,ProductFactoryMethod.product.Y,ProductFactoryMethod.product.Z)));
                 return new Product(productRef, 20, offers, specialOffers, combinationOffers);
             case U:
                 specialOffers.add(new SpecialOffer(3,Arrays.asList(ProductFactoryMethod.product.U)));
@@ -81,16 +82,20 @@ public class ProductFactory implements ProductFactoryMethod {
             case W:
                 return new Product(productRef, 20, offers, specialOffers, combinationOffers);
             case X:
+                combinationOffers.add(new CombinationOffer(3,45, Arrays.asList(ProductFactoryMethod.product.T,ProductFactoryMethod.product.S,ProductFactoryMethod.product.Y,ProductFactoryMethod.product.Z)));
                 return new Product(productRef, 17, offers, specialOffers, combinationOffers);
             case Y:
+                combinationOffers.add(new CombinationOffer(3,45, Arrays.asList(ProductFactoryMethod.product.T,ProductFactoryMethod.product.X,ProductFactoryMethod.product.S,ProductFactoryMethod.product.Z)));
                 return new Product(productRef, 20, offers, specialOffers, combinationOffers);
             case Z:
+                combinationOffers.add(new CombinationOffer(3,45, Arrays.asList(ProductFactoryMethod.product.T,ProductFactoryMethod.product.X,ProductFactoryMethod.product.Y,ProductFactoryMethod.product.S)));
                 return new Product(productRef, 21, offers, specialOffers, combinationOffers);
             default:
                 return null;
         }
     }
 }
+
 
 
 

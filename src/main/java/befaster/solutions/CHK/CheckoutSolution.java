@@ -1,5 +1,7 @@
 package befaster.solutions.CHK;
 
+import befaster.solutions.CHK.utility.ProductFactory;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -59,10 +61,13 @@ public class CheckoutSolution {
         }
 
         // create product on runtime
-
+        for(String prod : items){
+            ProductFactory.
+        }
 
         return getTotalPrice();
     }
 
 
 }
+
