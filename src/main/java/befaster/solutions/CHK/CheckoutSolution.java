@@ -28,7 +28,7 @@ enum item {
     M("M", 15, false, false),
     N("N", 40, false, true), //    | 3N get one M free      |
     O("O", 10, false, false),
-    P("p", 50, true, false),  // | 5P for 200             |
+    P("P", 50, true, false),  // | 5P for 200             |
     Q("Q", 30, true, false),  // | 3Q for 80              |
     R("R", 50, false, true),  // | 3R get one Q free      |
     S("S", 30, false, false),
@@ -318,6 +318,7 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
 

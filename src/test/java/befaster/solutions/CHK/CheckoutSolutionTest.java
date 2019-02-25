@@ -19,24 +19,27 @@ public class CheckoutSolutionTest {
     // prices A = 50, B = 30, C = 20, D = 15, E = 40, F = 10
     // no decimals, only integers
     @Test
-    public void bigTest(){
+    public void bigTest() {
         assertThat(checkout.checkout("NNNMM"), equalTo(135));
         assertThat(checkout.checkout("RRRQQ"), equalTo(180));
         assertThat(checkout.checkout("UUUU"), equalTo(120));
         assertThat(checkout.checkout("KK"), equalTo(150));
         assertThat(checkout.checkout("HHHHHHHHHH"), equalTo(80));
         assertThat(checkout.checkout("HHHHHHHHHHHHHHH"), equalTo(125));
+        assertThat(checkout.checkout("P"), equalTo(50));
+        assertThat(checkout.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ"), equalTo(965));
+        assertThat(checkout.checkout("P"), equalTo(50));
     }
 
     @Test
-    public void oneTest(){
+    public void oneTest() {
         assertThat(checkout.checkout("ABCDEF"), equalTo(165));
         assertThat(checkout.checkout("ABCDEFABCDEF"), equalTo(300));
         assertThat(checkout.checkout("CDFFAECBDEAB"), equalTo(300));
     }
 
     @Test
-    public void simpleTest(){
+    public void simpleTest() {
         assertThat(checkout.checkout("A"), equalTo(50));
         assertThat(checkout.checkout("B"), equalTo(30));
         assertThat(checkout.checkout("C"), equalTo(20));
@@ -44,6 +47,7 @@ public class CheckoutSolutionTest {
         assertThat(checkout.checkout("E"), equalTo(40));
         assertThat(checkout.checkout("F"), equalTo(10));
     }
+
     @Test
     public void simpleATest() {
         assertThat(checkout.checkout("AA"), equalTo(100));
@@ -100,12 +104,12 @@ public class CheckoutSolutionTest {
     }
 
     @Test
-    public void simpleCombinationSpecialOfferBFreeTest(){
+    public void simpleCombinationSpecialOfferBFreeTest() {
         assertThat(checkout.checkout("BBEE"), equalTo(110));
     }
 
     @Test
-    public void combinationSpecialOfferBFreeTest(){
+    public void combinationSpecialOfferBFreeTest() {
         assertThat(checkout.checkout("AABCDDEECDE"), equalTo(305));
     }
 
@@ -133,6 +137,7 @@ public class CheckoutSolutionTest {
         assertThat(checkout.checkout("FABBACxCDDAE@F"), equalTo(-1));
     }
 }
+
 
 
 
