@@ -13,9 +13,9 @@ import java.util.stream.Stream;
 // item representation
 enum item {
     // itemRef, price, haveOffer, haveSpecialOffer
-    A("A", 50, true, false),
+    A("A", 50, true, false), // 3A for 130, 5A for 200
     B("B", 30, true, false),
-    C("C", 20, false, false),
+    C("C", 20, false, false), //
     D("D", 15, false, false),
     E("E", 40, false, true),
     F("F", 10, false, true),
@@ -23,7 +23,7 @@ enum item {
     H("H", 10, true, false), //5H for 45, 10H for 80  |
     I("I", 35, false, false),
     J("J", 60, false, false),
-    K("K", 80, true, false), //   | 2K for 150             |
+    K("K", 70, true, false), //   | 2K for 150             |
     L("L", 90, false, false),
     M("M", 15, false, false),
     N("N", 40, false, true), //    | 3N get one M free      |
@@ -31,14 +31,14 @@ enum item {
     P("P", 50, true, false),  // | 5P for 200             |
     Q("Q", 30, true, false),  // | 3Q for 80              |
     R("R", 50, false, true),  // | 3R get one Q free      |
-    S("S", 30, false, false),
+    S("S", 20, false, false),
     T("T", 20, false, false),
     U("U", 40, false, true),   //| 3U get one U free      |
     V("V", 50, true, false),  //| 2V for 90, 3V for 130  |
     W("W", 20, false, false),
-    X("X", 90, false, false),
-    Y("Y", 10, false, false),
-    Z("Z", 50, false, false);
+    X("X", 17, false, false),
+    Y("Y", 20, false, false),
+    Z("Z", 21, false, false);
     private String itemRef;
     private int price;
     private boolean haveOffer;
@@ -318,3 +318,4 @@ public class CheckoutSolution {
         return items;
     }
 }
+
