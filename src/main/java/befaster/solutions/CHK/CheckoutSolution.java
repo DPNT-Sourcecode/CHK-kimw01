@@ -71,17 +71,23 @@ public class CheckoutSolution {
             sumToTotalPrice(product.getPrice());
             products.add(product);
             // special offers
-
+            processSpecialOffers(items, products.stream().filter(p -> (p.getSpecialOffers().size()>0)).collect(Collectors.toList()));
             // offers
         }
 
         return getTotalPrice();
     }
 
-    private void processSpecialOffers(List<String> items, final item product){
+    private void processSpecialOffers(final List<String> items, final List<Product> products){
+        if(!products.isEmpty()){
 
+            for(Product product:products){
+
+            }
+        }
     }
 }
+
 
 
 
