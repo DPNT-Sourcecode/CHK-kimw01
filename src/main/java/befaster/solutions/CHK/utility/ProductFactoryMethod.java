@@ -31,5 +31,6 @@ public interface ProductFactoryMethod {
         Y,
         Z
     }
-    public Product createProduct(product productRef);
+    Product createProduct(product productRef);
 }
+
