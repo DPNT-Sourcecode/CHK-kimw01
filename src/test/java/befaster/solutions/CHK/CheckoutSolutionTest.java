@@ -23,14 +23,14 @@ public class CheckoutSolutionTest {
         assertThat(checkout.checkout("NNNMM"), equalTo(135));
         assertThat(checkout.checkout("RRRQQ"), equalTo(180));
         assertThat(checkout.checkout("UUUU"), equalTo(120));
-        assertThat(checkout.checkout("KK"), equalTo(150));
+        assertThat(checkout.checkout("KK"), equalTo(120));
         assertThat(checkout.checkout("HHHHHHHHHH"), equalTo(80));
         assertThat(checkout.checkout("HHHHHHHHHHHHHHH"), equalTo(125));
         assertThat(checkout.checkout("P"), equalTo(50));
-        assertThat(checkout.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ"), equalTo(965));
+        assertThat(checkout.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ"), equalTo(853));
         assertThat(checkout.checkout("P"), equalTo(50));
         assertThat(checkout.checkout("SSS"), equalTo(45));
-        assertThat(checkout.checkout("TXY"), equalTo(50));
+        assertThat(checkout.checkout("TXY"), equalTo(45));
 
     }
 
@@ -140,3 +140,4 @@ public class CheckoutSolutionTest {
         assertThat(checkout.checkout("FABBACxCDDAE@F"), equalTo(-1));
     }
 }
+

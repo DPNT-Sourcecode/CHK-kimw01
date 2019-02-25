@@ -89,15 +89,15 @@ enum item {
         } else if (this.equals(V)) {
             offers.add(offer.V1);
             offers.add(offer.V2);
-        } else if(this.equals(S)){
+        } else if (this.equals(S)) {
             offers.add(offer.S);
-        } else if(this.equals(T)){
+        } else if (this.equals(T)) {
             offers.add(offer.T);
-        } else if(this.equals(X)){
+        } else if (this.equals(X)) {
             offers.add(offer.X);
-        } else if(this.equals(Y)){
+        } else if (this.equals(Y)) {
             offers.add(offer.Y);
-        } else if(this.equals(offer.Z)){
+        } else if (this.equals(offer.Z)) {
             offers.add(offer.Z);
         }
 
@@ -140,8 +140,9 @@ enum offer {
     V2(2, 90),
     S(3, 45),
     T(3, 45),
-    X(3,45),
-    Z(3,45);
+    X(3, 45),
+    Y(3, 45),
+    Z(3, 45);
     private int numItems;
     private int price;
 
@@ -163,7 +164,7 @@ enum offer {
 // specialOffer linked to item
 enum specialOffer {
     // numItems, free item object
-    E(2, newitem.B),
+    E(2, item.B),
     F(2, item.F),
     N(3, item.M),
     R(3, item.Q),
@@ -298,7 +299,7 @@ public class CheckoutSolution {
                         while (remainItems.iterator().hasNext() && ((remainItems.size() / so.getNumItems()) > 0)) {
                             if (remainItems.size() > so.getNumItems()) {
                                 // sublist of items remain, remove 3 (2 pack and 1 free)
-                                remainItems = remainItems.subList(0, remainItems.size() - (so.getNumItems()+1));
+                                remainItems = remainItems.subList(0, remainItems.size() - (so.getNumItems() + 1));
                             } else {
                                 break;
                             }
@@ -335,3 +336,4 @@ public class CheckoutSolution {
         return items;
     }
 }
+
