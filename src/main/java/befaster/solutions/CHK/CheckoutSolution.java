@@ -86,6 +86,7 @@ public class CheckoutSolution {
      */
     private void processSpecialOffers(final List<String> items, final List<Product> products) {
         if (!products.isEmpty()) {
+
             for (Product product : products) {
                 for (SpecialOffer so : product.getSpecialOffers()) {
                     int numPack = Collections.frequency(items, product.getProductRef().getRef()) / so.getNumItems();
@@ -131,6 +132,7 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
 
