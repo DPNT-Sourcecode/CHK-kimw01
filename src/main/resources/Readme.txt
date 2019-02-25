@@ -17,19 +17,4 @@
  - {"method":"checkout","params":["FFFFFF"],"id":"CHK_R3_042"}, expected: 40, got: 30
  CASE3: 3 packs of 2F, first pack get free one, second pack get free one, no there is third pack because is free two items of them
 
-Conclusions:
-Calculate pack by pack and get free one item by pack, such as below:
-FFFFFFFFFFFF = 6 packs
-
-1: FFFFFFFFFFF = 6 packs
-2: FFFFFFFFFF = 5 packs
-3: FFFFFFFFF = 4
-4: FFFFFFFF = 4
-5: FFFFFFF = 3
-6: FFFFFF = 3
-7: FFFFF = 2
-8: FFFF = 2
-9: FFF = 1
-10: FF = 1
-20
-.....
+IS LATER, GOODNIGHT! I cannot finish because between week I don't have time.
