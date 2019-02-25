@@ -66,6 +66,7 @@ public class ProductFactory implements ProductFactoryMethod {
                 specialOffers.add(new SpecialOffer(3,Arrays.asList(ProductFactoryMethod.product.Q)));
                 return new Product(productRef, 50, offers, specialOffers, combinationOffers);
             case S:
+                combinationOffers.add()
                 return new Product(productRef, 20, offers, specialOffers, combinationOffers);
             case T:
                 return new Product(productRef, 20, offers, specialOffers, combinationOffers);
@@ -90,5 +91,6 @@ public class ProductFactory implements ProductFactoryMethod {
         }
     }
 }
+
 
 
