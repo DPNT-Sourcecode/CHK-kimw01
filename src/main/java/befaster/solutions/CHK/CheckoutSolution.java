@@ -98,7 +98,7 @@ public class CheckoutSolution {
                             // remove free products from items
                             items.remove(freeProduct.getRef());
                             // remove pack products from items
-                            for(int i = so.getNumItems(); i>0; i--){
+                            for (int i = so.getNumItems(); i > 0; i--) {
                                 items.remove(product.getProductRef().getRef());
                             }
                         }
@@ -108,20 +108,23 @@ public class CheckoutSolution {
         }
     }
 
-    private void processOffers(final List<String> items, final List<Product> products){
-        if(!products.isEmpty()){
-            for(Product product: products){
-                int remainItems = products.size();
-                for(Offer offer : product.getOfferList()){
+    private void processOffers(final List<String> items, final List<Product> products) {
+        if (!products.isEmpty()) {
+            for (Product product : products) {
+                for (Offer offer : product.getOfferList()) {
                     // substract unitary price
-                    for(int i = offer.getNumProducts(); i>0 ; i--){
+                    for (int i = offer.getNumProducts(); i > 0; i--) {
                         sumToTotalPrice(-product.getPrice());
+                        // remove pack products from items
+                        items.remove(product.getProductRef().getRef());
                     }
                     // sum the pack price
-                    sumToTotalPrice((remainItems / offer.getNumProducts()) * offer.getPrice());
+                    sumToTotalPrice((products.size() / offer.getNumProducts()) * offer.getPrice());
                 }
+
             }
         }
     }
 }
+
 
