@@ -31,6 +31,7 @@ public interface ProductFactoryMethod {
         Y,
         Z
     }
-    public Product createProduct(product productRef, Integer price, List<Offer> offerList, List<SpecialOffer> specialOffers, List<CombinationOffer> combinationOffers);
+    public Product createProduct(product productRef);
 }
+
 
