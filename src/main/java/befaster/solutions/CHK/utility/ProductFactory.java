@@ -2,6 +2,7 @@ package befaster.solutions.CHK.utility;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 
@@ -15,8 +16,9 @@ public class ProductFactory implements ProductFactoryMethod {
         List<CombinationOffer> combinationOffers = new ArrayList<CombinationOffer>();
         switch (productRef) {
             case A:
-                List<ProductFactoryMethod.product> freeProducts = Arrays.asList(ProductFactoryMethod.product.)
-                specialOffers.add(new SpecialOffer());
+                offers.add(new Offer(3, 130));
+                offers.add(new Offer(5, 200));
+                offers.sort(Comparator.comparing(Offer::getNumProducts));
                 return new Product(productRef, 50, offers, specialOffers, combinationOffers);
             case B:
                 return new Product(productRef, 30, offers, specialOffers, combinationOffers);
@@ -25,6 +27,8 @@ public class ProductFactory implements ProductFactoryMethod {
             case D:
                 return new Product(productRef, 15, offers, specialOffers, combinationOffers);
             case E:
+                List<ProductFactoryMethod.product> freeProducts = Arrays.asList(ProductFactoryMethod.product.B);
+                specialOffers.add(new SpecialOffer(2,freeProducts));
                 return new Product(productRef, 40, offers, specialOffers, combinationOffers);
             case F:
                 return new Product(productRef, 10, offers, specialOffers, combinationOffers);
@@ -73,6 +77,7 @@ public class ProductFactory implements ProductFactoryMethod {
         }
     }
 }
+
 
 
 
