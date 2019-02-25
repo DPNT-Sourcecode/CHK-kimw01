@@ -84,11 +84,12 @@ public class CheckoutSolution {
             for(Product product:products){
                 for(SpecialOffer so: product.getSpecialOffers()){
                     int numPack = Collections.frequency(items, product.getProductRef()) / so.getNumItems();
-                    so.getFreeProducts()
+                    for()
                 }
             }
         }
     }
 }
+
 
 
