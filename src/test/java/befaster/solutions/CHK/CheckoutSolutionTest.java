@@ -26,6 +26,8 @@ public class CheckoutSolutionTest {
     @Test
     public void offerPackTest(){
         assertThat(checkout.checkout("KK"), equalTo(120));
+        assertThat(checkout.checkout("HHHHHHHHHH"), equalTo(80));
+        assertThat(checkout.checkout("HHHHHHHHHHHHHHH"), equalTo(125));
     }
 
     @Test
@@ -161,3 +163,4 @@ public class CheckoutSolutionTest {
         assertThat(checkout.checkout("FABBACxCDDAE@F"), equalTo(-1));
     }
 }
+

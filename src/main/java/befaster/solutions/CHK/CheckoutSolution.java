@@ -120,7 +120,7 @@ public class CheckoutSolution {
             // every product must be handle once but is not possible apply distinct on stream because every product is an own instance
             // we need a predicate to filter product list first
             List<Product> productList = products.stream().filter(distinctProductByRef(Product::getProductRef)).collect(Collectors.toList());
-            for (Product product : products) {
+            for (Product product : productList) {
                 for (Offer offer : product.getOfferList()) {
                     // substract unitary price
                     for (int i = offer.getNumProducts(); i > 0; i--) {
@@ -147,5 +147,6 @@ public class CheckoutSolution {
         return product -> set.add(ref.apply(product));
     }
 }
+
 
 
