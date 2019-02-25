@@ -103,7 +103,7 @@ enum item {
             offers.add(offer.X);
         } else if (this.equals(Y)) {
             offers.add(offer.Y);
-        } else if (this.equals(offer.Z)) {
+        } else if (this.equals(Z)) {
             offers.add(offer.Z);
         }
 
@@ -409,4 +409,5 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
