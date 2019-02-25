@@ -41,6 +41,8 @@ public abstract class Product {
     // abstract methods of operations
     public abstract List<Offer> getListOffer();
 
+    public abstract void setListOffer();
+
     public abstract void priceOperation(Integer price, List<String> basketItems);
 
     public abstract void priceOfferOperation(Integer price);
@@ -49,3 +51,4 @@ public abstract class Product {
 
     public abstract void priceCombinationOfferOperation(Integer price);
 }
+

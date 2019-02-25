@@ -9,5 +9,14 @@ public abstract class Offer {
         this.price = price;
     }
 
-    // 
+    public Integer getNumProducts() {
+        return numProducts;
+    }
+
+    public Integer getPrice() {
+        return price;
+    }
+
+
 }
+
