@@ -93,6 +93,7 @@ public class CheckoutSolution {
                         for(ProductFactoryMethod.product freeProduct : so.getFreeProducts()){
                            Integer price = new ProductFactory().createProduct(freeProduct).getPrice();
                            sumToTotalPrice(-price);
+                           numPack --;
                         }
                     }
                 }
@@ -100,3 +101,4 @@ public class CheckoutSolution {
         }
     }
 }
+
