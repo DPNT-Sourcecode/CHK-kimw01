@@ -1,5 +1,7 @@
 package befaster.solutions.CHK.utility;
 
+import java.util.List;
+
 public abstract class Product {
 
     private Integer price;
@@ -32,7 +34,14 @@ public abstract class Product {
 
     // abstract methods of operations
     // TODO
-    
+    public abstract void priceOperation(Integer price, List<String> basketItems);
+
+    public abstract void priceOfferOperation(Integer price);
+
+    public abstract void priceSpecialOfferOperation(Integer price);
+
+    public abstract void priceCombinationOfferOperation(Integer price);
 }
+
 
 
