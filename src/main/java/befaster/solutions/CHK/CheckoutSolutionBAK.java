@@ -233,7 +233,7 @@ enum combinationOffer {
     }
 }
 
-public class CheckoutSolution {
+public class CheckoutSolutionBAK {
 
     /*
      * final price
@@ -408,3 +408,4 @@ public class CheckoutSolution {
         return items;
     }
 }
+

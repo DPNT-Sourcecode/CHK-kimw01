@@ -7,11 +7,11 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
 public class CheckoutSolutionR1Test {
-    private CheckoutSolution checkout;
+    private CheckoutSolutionBAK checkout;
 
     @Before
     public void setUp(){
-        checkout = new CheckoutSolution();
+        checkout = new CheckoutSolutionBAK();
     }
 
     // offers 3A = 130, 2B = 45
@@ -76,3 +76,4 @@ public class CheckoutSolutionR1Test {
         assertThat(checkout.checkout("FABBACCDDA"),equalTo(-1));
     }
 }
+

@@ -1,6 +1,6 @@
 package befaster;
 
-import befaster.solutions.CHK.CheckoutSolution;
+import befaster.solutions.CHK.CheckoutSolutionBAK;
 import befaster.solutions.FIZ.FizzBuzzSolution;
 import befaster.solutions.HLO.HelloSolution;
 import befaster.solutions.SUM.SumSolution;
@@ -21,13 +21,13 @@ public class EntryPointMapping {
     private final SumSolution sumSolution;
     private final HelloSolution helloSolution;
     private final FizzBuzzSolution fizzBuzzSolution;
-    private final CheckoutSolution checkoutSolution;
+    private final CheckoutSolutionBAK checkoutSolution;
 
     EntryPointMapping() {
         sumSolution = new SumSolution();
         helloSolution = new HelloSolution();
         fizzBuzzSolution = new FizzBuzzSolution();
-        checkoutSolution = new CheckoutSolution();
+        checkoutSolution = new CheckoutSolutionBAK();
     }
 
     public Object sum(String ... p) {
@@ -46,3 +46,4 @@ public class EntryPointMapping {
         return checkoutSolution.checkout(p[0]);
     }
 }
+
