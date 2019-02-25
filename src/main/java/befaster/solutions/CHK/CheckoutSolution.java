@@ -76,6 +76,7 @@ public class CheckoutSolution {
         // special offers
         processSpecialOffers(items, products.stream().filter(p -> p.haveSpecialOffer()).collect(Collectors.toList()));
         // offers
+
         return getTotalPrice();
     }
 
@@ -107,7 +108,14 @@ public class CheckoutSolution {
             }
         }
     }
+
+    private void processOffers(final List<String> items, final List<Product> products){
+        if(!products.isEmpty()){
+            
+        }
+    }
 }
+
 
 
 
