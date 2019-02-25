@@ -8,6 +8,7 @@ import ch.qos.logback.core.net.SyslogOutputStream;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -82,11 +83,12 @@ public class CheckoutSolution {
         if(!products.isEmpty()){
             for(Product product:products){
                 for(SpecialOffer so: product.getSpecialOffers()){
-                    items.stream().filter(i -> i.equals(product.getProductRef())).collect(Collectors.toList()).size() / so.getNumItems();
+                    int numPack = Collections.frequency(items, product.getProductRef()) / so.getNumItems();
                     so.getFreeProducts()
                 }
             }
         }
     }
 }
+
 
