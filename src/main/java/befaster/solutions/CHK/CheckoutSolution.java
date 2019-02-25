@@ -117,6 +117,7 @@ public class CheckoutSolution {
     private void processOffers(final List<String> items, final List<Product> products) {
         if (!products.isEmpty()) {
             // every product must be handle once but is not possible apply distinct on stream because every product is an own instance
+            // we need a predicate to filter product list first
             for (Product product : products) {
                 for (Offer offer : product.getOfferList()) {
                     // substract unitary price
@@ -133,10 +134,3 @@ public class CheckoutSolution {
         }
     }
 }
-
-
-
-
-
-
-
