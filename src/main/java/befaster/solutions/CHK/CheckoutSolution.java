@@ -172,7 +172,20 @@ enum specialOffer {
     }
 }
 
+enum buyAnyOf{
+    S(3,new ArrayList<String>()),
+    T(),
+    X(),
+    Y(),
+    Z();
+    private int numItems;
+    private List<String> listItemRef;
 
+    buyAnyOf(final int numItems, final List<String> listItemRef){
+        this.numItems = numItems;
+        this.listItemRef = listItemRef;
+    }
+}
 public class CheckoutSolution {
 
     /*
@@ -318,5 +331,6 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
