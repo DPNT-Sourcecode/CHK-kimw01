@@ -88,7 +88,7 @@ public class CheckoutSolution {
         if(!products.isEmpty()){
             for(Product product:products){
                 for(SpecialOffer so: product.getSpecialOffers()){
-                    int numPack = Collections.frequency(items, product.getProductRef()) / so.getNumItems();
+                    int numPack = Collections.frequency(items, product.getProductRef().getRef()) / so.getNumItems();
                     while(numPack>0){
                         for(ProductFactoryMethod.product freeProduct : so.getFreeProducts()){
                            Integer price = new ProductFactory().createProduct(freeProduct).getPrice();
@@ -100,6 +100,7 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
 

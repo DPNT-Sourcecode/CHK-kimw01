@@ -42,4 +42,9 @@ public class Product {
     public boolean haveSpecialOffer(){
         return !specialOffers.isEmpty();
     }
+
+    public String toStringRef(){
+
+    }
 }
+
