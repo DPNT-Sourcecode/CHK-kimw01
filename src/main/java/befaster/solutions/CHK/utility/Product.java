@@ -1,4 +1,4 @@
-package befaster.solutions.CHK;
+package befaster.solutions.CHK.utility;
 
-public interface Product {
+public class Product {
 }
