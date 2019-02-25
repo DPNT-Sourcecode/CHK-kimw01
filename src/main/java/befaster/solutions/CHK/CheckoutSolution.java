@@ -1,9 +1,6 @@
 package befaster.solutions.CHK;
 
-import befaster.solutions.CHK.utility.Product;
-import befaster.solutions.CHK.utility.ProductFactory;
-import befaster.solutions.CHK.utility.ProductFactoryMethod;
-import befaster.solutions.CHK.utility.SpecialOffer;
+import befaster.solutions.CHK.utility.*;
 import ch.qos.logback.core.net.SyslogOutputStream;
 
 import java.util.ArrayList;
@@ -94,6 +91,7 @@ public class CheckoutSolution {
                     while (numPack > 0) {
                         for (ProductFactoryMethod.product freeProduct : so.getFreeProducts()) {
                             Integer price = new ProductFactory().createProduct(freeProduct).getPrice();
+                            // substract the unitary price of free product
                             sumToTotalPrice(-price);
                             numPack--;
                             // remove free products from items
@@ -111,10 +109,16 @@ public class CheckoutSolution {
 
     private void processOffers(final List<String> items, final List<Product> products){
         if(!products.isEmpty()){
-            
+            for(Product product: products){
+                int remainItems = products.size();
+                for(Offer offer : product.getOfferList()){
+                    sumToTotalPrice(remainItems / offer.getNumProducts());
+                }
+            }
         }
     }
 }
+
 
 
 
