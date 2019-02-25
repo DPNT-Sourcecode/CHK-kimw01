@@ -14,7 +14,7 @@ public class ProductFactory implements ProductFactoryMethod {
         List<CombinationOffer> combinationOffers = new ArrayList<CombinationOffer>();
         switch (productRef) {
             case A:
-
+                specialOffers.add(new SpecialOffer());
                 return new Product(productRef, 50, offers, specialOffers, combinationOffers);
             case B:
                 return new Product(productRef, 30, offers, specialOffers, combinationOffers);
@@ -71,6 +71,7 @@ public class ProductFactory implements ProductFactoryMethod {
         }
     }
 }
+
 
 
 
