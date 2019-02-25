@@ -71,7 +71,8 @@ public class CheckoutSolution {
             sumToTotalPrice(product.getPrice());
             products.add(product);
             // special offers
-            processSpecialOffers(items, products.stream().filter(p -> (p.getSpecialOffers().size()>0)).collect(Collectors.toList()));
+            List<Product> pList = products.stream().filter(p -> p.haveSpecialOffer()).collect(Collectors.toList());
+            processSpecialOffers(items, pList);
             // offers
         }
 
@@ -87,6 +88,7 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
 

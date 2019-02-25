@@ -37,4 +37,10 @@ public class Product {
     public List<CombinationOffer> getCombinationOffers() {
         return combinationOffers;
     }
+
+    // special to filter
+    public boolean haveSpecialOffer(){
+        return !specialOffers.isEmpty();
+    }
 }
+
