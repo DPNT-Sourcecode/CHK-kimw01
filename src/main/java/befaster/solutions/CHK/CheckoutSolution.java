@@ -318,8 +318,3 @@ public class CheckoutSolution {
         return items;
     }
 }
-
-
-
-
-
