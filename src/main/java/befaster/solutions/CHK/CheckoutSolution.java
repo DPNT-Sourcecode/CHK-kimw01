@@ -58,10 +58,12 @@ public class CheckoutSolution {
             return -1;
         }
 
+        // create product on runtime
 
 
         return getTotalPrice();
     }
 
-    
+
 }
+
