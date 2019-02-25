@@ -70,6 +70,10 @@ enum item {
         return haveSpecialOffer;
     }
 
+    public boolean isHaveCombOffer() {
+        return haveCombOffer;
+    }
+
     // get offers by item
     public ArrayList<offer> getOffers() {
         ArrayList<offer> offers = new ArrayList<offer>();
@@ -288,7 +292,7 @@ public class CheckoutSolution {
         // IT IS UNKNOWN THE ORDER OF PRIORITY OF OFFERS!!
         // combination offers
         for (item i : item.values()) {
-            if (i.isHaveSpecialOffer()) {
+            if (i.isHaveCombOffer()) {
                 // calculate price by item/product and get the remain items in the collection
                 items = processItemCollection(items, i);
             }
@@ -333,8 +337,9 @@ public class CheckoutSolution {
         // if the list not empty process the product, if the list is empty the total price of item/product will be zero
         // and then will not be necessary add the product price to the total price of basket
         if (!collect.isEmpty()) {
-            // first: with special offers
-            if (product.isHaveSpecialOffer()) {
+            if (product.isHaveCombOffer()) {
+                // first: with special offers
+            } else if (product.isHaveSpecialOffer()) {
                 // for each product with special offer
                 for (specialOffer so : product.getSpecialOffers()) {
                     // because the special offer means that some products are free
@@ -384,6 +389,7 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
 
