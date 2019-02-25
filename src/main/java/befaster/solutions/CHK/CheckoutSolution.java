@@ -73,13 +73,13 @@ public class CheckoutSolution {
         // special offers
         processSpecialOffers(items, products.stream().filter(p -> p.haveSpecialOffer()).collect(Collectors.toList()));
         // offers
-        processOffers(items, products.stream().filter(p -> !p.getOfferList().isEmpty()).collect(Collectors.toList()));
+        processOffers(items, products.stream().filter(p -> !p.getOfferList().isEmpty()).distinct().collect(Collectors.toList()));
 
         return getTotalPrice();
     }
 
     /**
-     * handling of offers with free items
+     * handle offers with free items
      *
      * @param items
      * @param products
@@ -108,6 +108,11 @@ public class CheckoutSolution {
         }
     }
 
+    /**
+     * Handle offers pack of the same product
+     * @param items
+     * @param products
+     */
     private void processOffers(final List<String> items, final List<Product> products) {
         if (!products.isEmpty()) {
             for (Product product : products) {
@@ -126,5 +131,6 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
