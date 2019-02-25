@@ -14,39 +14,40 @@ import java.util.stream.Stream;
 // item representation
 enum item {
     // itemRef, price, haveOffer, haveSpecialOffer
-    A("A", 50, true, false), // 3A for 130, 5A for 200
-    B("B", 30, true, false), // 2B for 45
-    C("C", 20, false, false),
-    D("D", 15, false, false),
-    E("E", 40, false, true), // 2E get one B free
-    F("F", 10, false, true), //2F get one F free
-    G("G", 20, false, false),
-    H("H", 10, true, false), //5H for 45, 10H for 80  |
-    I("I", 35, false, false),
-    J("J", 60, false, false),
-    K("K", 70, true, false), //   | 2K for 150             |
-    L("L", 90, false, false),
-    M("M", 15, false, false),
-    N("N", 40, false, true), //    | 3N get one M free      |
-    O("O", 10, false, false),
-    P("P", 50, true, false),  // | 5P for 200             |
-    Q("Q", 30, true, false),  // | 3Q for 80              |
-    R("R", 50, false, true),  // | 3R get one Q free      |
-    S("S", 20, true, false), // buy any 3 of (S,T,X,Y,Z) for 45, 3S = 45
-    T("T", 20, true, false), // buy any 3 of (S,T,X,Y,Z) for 45, 3T = 45
-    U("U", 40, false, true),   //| 3U get one U free      |
-    V("V", 50, true, false),  //| 2V for 90, 3V for 130  |
-    W("W", 20, false, false),
-    X("X", 17, true, false), // buy any 3 of (S,T,X,Y,Z) for 45, 3X = 45
-    Y("Y", 20, true, false), // buy any 3 of (S,T,X,Y,Z) for 45, 3Y = 45
-    Z("Z", 21, true, false); // buy any 3 of (S,T,X,Y,Z) for 45, 3Z = 45
+    A("A", 50, true, false, false), // 3A for 130, 5A for 200
+    B("B", 30, true, false, false), // 2B for 45
+    C("C", 20, false, false, false),
+    D("D", 15, false, false, false),
+    E("E", 40, false, true, false), // 2E get one B free
+    F("F", 10, false, true, false), //2F get one F free
+    G("G", 20, false, false, false),
+    H("H", 10, true, false, false), //5H for 45, 10H for 80  |
+    I("I", 35, false, false, false),
+    J("J", 60, false, false, false),
+    K("K", 70, true, false, false), //   | 2K for 150             |
+    L("L", 90, false, false, false),
+    M("M", 15, false, false, false),
+    N("N", 40, false, true, false), //    | 3N get one M free      |
+    O("O", 10, false, false, false),
+    P("P", 50, true, false, false),  // | 5P for 200             |
+    Q("Q", 30, true, false, false),  // | 3Q for 80              |
+    R("R", 50, false, true, false),  // | 3R get one Q free      |
+    S("S", 20, true, false, true), // buy any 3 of (S,T,X,Y,Z) for 45, 3S = 45
+    T("T", 20, true, false, true), // buy any 3 of (S,T,X,Y,Z) for 45, 3T = 45
+    U("U", 40, false, true, false),   //| 3U get one U free      |
+    V("V", 50, true, false, false),  //| 2V for 90, 3V for 130  |
+    W("W", 20, false, false, false),
+    X("X", 17, true, false, true), // buy any 3 of (S,T,X,Y,Z) for 45, 3X = 45
+    Y("Y", 20, true, false, true), // buy any 3 of (S,T,X,Y,Z) for 45, 3Y = 45
+    Z("Z", 21, true, false, true); // buy any 3 of (S,T,X,Y,Z) for 45, 3Z = 45
     private String itemRef;
     private int price;
     private boolean haveOffer;
     private boolean haveSpecialOffer;
+    private boolean haveCombOffer;
 
     // contructor
-    item(final String itemRef, final int price, final boolean haveOffer, final boolean haveSpecialOffer) {
+    item(final String itemRef, final int price, final boolean haveOffer, final boolean haveSpecialOffer, final boolean haveCombOffer) {
         this.itemRef = itemRef;
         this.price = price;
         this.haveOffer = haveOffer;
@@ -284,7 +285,14 @@ public class CheckoutSolution {
         // important: handle the items in taxonomy order to discard free items before calculate pack offers
         // we cannot create a recursive method to handle all the products
         // buy any 3 of (S,T,X,Y,Z) for 45 (ambiguous!!) is valid (SSS or TTT)? may be.
-
+        // IT IS UNKNOWN THE ORDER OF PRIORITY OF OFFERS!!
+        // combination offers
+        for (item i : item.values()) {
+            if (i.isHaveSpecialOffer()) {
+                // calculate price by item/product and get the remain items in the collection
+                items = processItemCollection(items, i);
+            }
+        }
 
         // first: handle items with special offers
         for (item i : item.values()) {
@@ -376,6 +384,7 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
 
