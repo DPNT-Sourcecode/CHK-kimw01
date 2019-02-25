@@ -22,6 +22,12 @@ public class CheckoutSolutionTest {
     public void specialOfferFreeItems(){
         assertThat(checkout.checkout("BEEB"), equalTo(110));
     }
+
+    @Test
+    public void offerPackTest(){
+        assertThat(checkout.checkout("KK"), equalTo(120));
+    }
+
     @Test
     public void bigTest() {
         assertThat(checkout.checkout("NNNMM"), equalTo(135));
@@ -155,3 +161,4 @@ public class CheckoutSolutionTest {
         assertThat(checkout.checkout("FABBACxCDDAE@F"), equalTo(-1));
     }
 }
+
