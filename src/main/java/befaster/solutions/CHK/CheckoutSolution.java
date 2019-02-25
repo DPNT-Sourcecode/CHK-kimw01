@@ -338,10 +338,14 @@ public class CheckoutSolution {
         // and then will not be necessary add the product price to the total price of basket
         if (!collect.isEmpty()) {
             if (product.isHaveCombOffer()) {
-                for(String s : collect){
-                    for(combinationOffer co: product.getCombinationOffers()){
-                        for(item i : co.getItemsRefList()){
-                            items.remove(items.indexOf(i.getItemRef()));
+                int countPack = 0;
+                for (String s : collect) {
+                    for (combinationOffer co : product.getCombinationOffers()) {
+                        for (item i : co.getItemsRefList()) {
+                            if (items.indexOf(i.getItemRef()) >= 0) {
+                                items.remove(items.indexOf(i.getItemRef()));
+                                countPack ++;
+                            }
                         }
                     }
                 }
@@ -396,3 +400,4 @@ public class CheckoutSolution {
         return items;
     }
 }
+
