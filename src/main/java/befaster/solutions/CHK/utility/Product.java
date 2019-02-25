@@ -4,13 +4,13 @@ import java.util.List;
 
 public class Product {
 
-    private String productRef;
+    private ProductFactoryMethod.product productRef;
     private Integer price;
     private List<Offer> offerList;
     private List<SpecialOffer> specialOffers;
     private List<CombinationOffer> combinationOffers;
 
-    public Product(String productRef, Integer price, List<Offer> offerList, List<SpecialOffer> specialOffers, List<CombinationOffer> combinationOffers){
+    public Product(ProductFactoryMethod.product productRef, Integer price, List<Offer> offerList, List<SpecialOffer> specialOffers, List<CombinationOffer> combinationOffers){
         this.productRef = productRef;
         this.price = price;
         this.offerList = offerList;
@@ -38,3 +38,4 @@ public class Product {
         return combinationOffers;
     }
 }
+
