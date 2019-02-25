@@ -14,11 +14,11 @@ import java.util.stream.Stream;
 enum item {
     // itemRef, price, haveOffer, haveSpecialOffer
     A("A", 50, true, false), // 3A for 130, 5A for 200
-    B("B", 30, true, false),
-    C("C", 20, false, false), //
+    B("B", 30, true, false), // 2B for 45
+    C("C", 20, false, false),
     D("D", 15, false, false),
-    E("E", 40, false, true),
-    F("F", 10, false, true),
+    E("E", 40, false, true), // 2E get one B free
+    F("F", 10, false, true), //2F get one F free
     G("G", 20, false, false),
     H("H", 10, true, false), //5H for 45, 10H for 80  |
     I("I", 35, false, false),
@@ -31,14 +31,14 @@ enum item {
     P("P", 50, true, false),  // | 5P for 200             |
     Q("Q", 30, true, false),  // | 3Q for 80              |
     R("R", 50, false, true),  // | 3R get one Q free      |
-    S("S", 20, false, false),
-    T("T", 20, false, false),
+    S("S", 20, false, false), // buy any 3 of (S,T,X,Y,Z) for 45
+    T("T", 20, false, false), // buy any 3 of (S,T,X,Y,Z) for 45
     U("U", 40, false, true),   //| 3U get one U free      |
     V("V", 50, true, false),  //| 2V for 90, 3V for 130  |
     W("W", 20, false, false),
-    X("X", 17, false, false),
-    Y("Y", 20, false, false),
-    Z("Z", 21, false, false);
+    X("X", 17, false, false), // buy any 3 of (S,T,X,Y,Z) for 45
+    Y("Y", 20, false, false), // buy any 3 of (S,T,X,Y,Z) for 45
+    Z("Z", 21, false, false); // buy any 3 of (S,T,X,Y,Z) for 45
     private String itemRef;
     private int price;
     private boolean haveOffer;
@@ -122,7 +122,7 @@ enum offer {
     B(2, 45),
     H1(10, 80),
     H2(5, 45),
-    K(2, 150),
+    K(2, 120),
     P(5, 200),
     Q(3, 80),
     V1(3, 130),
@@ -318,4 +318,5 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
