@@ -347,13 +347,15 @@ public class CheckoutSolution {
                                 items.remove(items.indexOf(i.getItemRef()));
                                 countPack ++;
                             }
-                            if(countPack==product.getOffers().get(0).getNumItems()){
+                            if(countPack>=(co.getNumItems()-1)){
                                 break;
                             }
                         }
                     }
-                    if(countPack==product.getOffers().get(0).getNumItems()){
+                    if(countPack>=(product.getOffers().get(0).getNumItems()-1)){
                         sumToTotalPrice(product.getOffers().get(0).getPrice());
+                        // delete the root pack reference
+                        items.remove(items.indexOf(product.getItemRef()));
                     }
                 }
 
@@ -407,3 +409,4 @@ public class CheckoutSolution {
         return items;
     }
 }
+
