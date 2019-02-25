@@ -338,7 +338,14 @@ public class CheckoutSolution {
         // and then will not be necessary add the product price to the total price of basket
         if (!collect.isEmpty()) {
             if (product.isHaveCombOffer()) {
-                // first: with special offers
+                for(String s : collect){
+                    for(combinationOffer co: product.getCombinationOffers()){
+                        for(item i : co.getItemsRefList()){
+                            items.remove(items.indexOf(i.getItemRef()));
+                        }
+                    }
+                }
+
             } else if (product.isHaveSpecialOffer()) {
                 // for each product with special offer
                 for (specialOffer so : product.getSpecialOffers()) {
@@ -389,9 +396,3 @@ public class CheckoutSolution {
         return items;
     }
 }
-
-
-
-
-
-
