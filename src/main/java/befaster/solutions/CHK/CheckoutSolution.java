@@ -2,6 +2,7 @@ package befaster.solutions.CHK;
 
 import befaster.solutions.CHK.utility.Product;
 import befaster.solutions.CHK.utility.ProductFactory;
+import ch.qos.logback.core.net.SyslogOutputStream;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -73,4 +74,5 @@ public class CheckoutSolution {
 
 
 }
+
 
