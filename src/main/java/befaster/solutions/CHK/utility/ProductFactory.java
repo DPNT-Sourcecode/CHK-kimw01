@@ -1,6 +1,7 @@
 package befaster.solutions.CHK.utility;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -14,6 +15,7 @@ public class ProductFactory implements ProductFactoryMethod {
         List<CombinationOffer> combinationOffers = new ArrayList<CombinationOffer>();
         switch (productRef) {
             case A:
+                List<ProductFactoryMethod.product> freeProducts = Arrays.asList(ProductFactoryMethod.product.)
                 specialOffers.add(new SpecialOffer());
                 return new Product(productRef, 50, offers, specialOffers, combinationOffers);
             case B:
@@ -71,6 +73,7 @@ public class ProductFactory implements ProductFactoryMethod {
         }
     }
 }
+
 
 
 

@@ -4,9 +4,9 @@ import java.util.List;
 
 public class SpecialOffer {
     private Integer numItems;
-    private List<Product> freeProducts;
+    private List<ProductFactoryMethod.product> freeProducts;
 
-    public SpecialOffer(final Integer numItems, final List<Product> freeProducts){
+    public SpecialOffer(final Integer numItems, final List<ProductFactoryMethod.product> freeProducts){
         this.numItems = numItems;
         this.freeProducts = freeProducts;
     }
@@ -14,8 +14,9 @@ public class SpecialOffer {
         return numItems;
     }
 
-    public List<Product> getFreeProducts() {
+    public List<ProductFactoryMethod.product> getFreeProducts() {
         return freeProducts;
     }
 }
+
 
