@@ -52,6 +52,7 @@ enum item {
         this.price = price;
         this.haveOffer = haveOffer;
         this.haveSpecialOffer = haveSpecialOffer;
+        this.haveCombOffer = haveCombOffer;
     }
 
     public String getItemRef() {
@@ -406,6 +407,7 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
 
