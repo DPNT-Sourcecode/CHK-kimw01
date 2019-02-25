@@ -33,9 +33,14 @@ public interface ProductFactoryMethod {
 
         private String ref;
         product(final String ref){
+            this.ref = ref;
+        }
 
+        public String getRef() {
+            return ref;
         }
     }
     Product createProduct(product productRef);
 }
+
 

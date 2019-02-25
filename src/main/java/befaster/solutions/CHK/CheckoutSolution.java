@@ -2,6 +2,7 @@ package befaster.solutions.CHK;
 
 import befaster.solutions.CHK.utility.Product;
 import befaster.solutions.CHK.utility.ProductFactory;
+import befaster.solutions.CHK.utility.ProductFactoryMethod;
 import ch.qos.logback.core.net.SyslogOutputStream;
 
 import java.util.ArrayList;
@@ -53,8 +54,8 @@ public class CheckoutSolution {
         // validate illegal entries cloning the list of items
         List<String> clone = items.stream().collect(Collectors.toList());
         // validate illegal input, remove legal product ref from clone list
-        for (item i : item.values()) {
-            clone.removeIf(product -> product.equals(i.getItemRef()));
+        for (ProductFactoryMethod.product prod : ProductFactoryMethod.product.values()) {
+            clone.removeIf(product -> product.equals(prod.getRef()));
         }
 
         // if the size of list is greater than 0 this means that the list contains illegal items or references
@@ -66,7 +67,7 @@ public class CheckoutSolution {
         for(String prod : items){
             ProductFactory factory = new ProductFactory();
             Product product = factory.createProduct(ProductFactory.product.valueOf(prod));
-            setTotalPrice(product.getPrice());
+            sumToTotalPrice(product.getPrice());
         }
 
         return getTotalPrice();
@@ -74,5 +75,6 @@ public class CheckoutSolution {
 
 
 }
+
 
 
