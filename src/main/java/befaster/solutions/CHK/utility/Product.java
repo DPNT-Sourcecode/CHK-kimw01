@@ -49,7 +49,3 @@ public abstract class Product {
 
     public abstract void priceCombinationOfferOperation(Integer price);
 }
-
-
-
-
