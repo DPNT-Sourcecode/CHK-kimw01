@@ -20,7 +20,7 @@ public class CheckoutSolutionTest {
     // no decimals, only integers
     @Test
     public void specialOfferFreeItems(){
-        assertThat(checkout.checkout("BEEB"), equalTo(125));
+        assertThat(checkout.checkout("BEEB"), equalTo(110));
     }
     @Test
     public void bigTest() {
@@ -155,3 +155,4 @@ public class CheckoutSolutionTest {
         assertThat(checkout.checkout("FABBACxCDDAE@F"), equalTo(-1));
     }
 }
+

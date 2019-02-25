@@ -99,7 +99,7 @@ public class CheckoutSolution {
                             items.remove(freeProduct.getRef());
                             // remove pack products from items
                             for(int i = so.getNumItems(); i>0; i--){
-                                items.remove(product.getProductRef());
+                                items.remove(product.getProductRef().getRef());
                             }
                         }
                     }
@@ -108,6 +108,7 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
 
