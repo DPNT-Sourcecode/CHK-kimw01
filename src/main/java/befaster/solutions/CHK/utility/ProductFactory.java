@@ -28,10 +28,10 @@ public class ProductFactory implements ProductFactoryMethod {
             case D:
                 return new Product(productRef, 15, offers, specialOffers, combinationOffers);
             case E:
-                List<ProductFactoryMethod.product> freeProducts = Arrays.asList(ProductFactoryMethod.product.B);
-                specialOffers.add(new SpecialOffer(2,freeProducts));
+                specialOffers.add(new SpecialOffer(2,Arrays.asList(ProductFactoryMethod.product.B)));
                 return new Product(productRef, 40, offers, specialOffers, combinationOffers);
             case F:
+                specialOffers.add(new SpecialOffer(2,Arrays.asList(ProductFactoryMethod.product.F)));
                 return new Product(productRef, 10, offers, specialOffers, combinationOffers);
             case G:
                 return new Product(productRef, 20, offers, specialOffers, combinationOffers);
@@ -52,6 +52,7 @@ public class ProductFactory implements ProductFactoryMethod {
             case M:
                 return new Product(productRef, 15, offers, specialOffers, combinationOffers);
             case N:
+                specialOffers.add(new SpecialOffer(3,Arrays.asList(ProductFactoryMethod.product.M)));
                 return new Product(productRef, 40, offers, specialOffers, combinationOffers);
             case O:
                 return new Product(productRef, 10, offers, specialOffers, combinationOffers);
@@ -62,12 +63,14 @@ public class ProductFactory implements ProductFactoryMethod {
                 offers.add(new Offer(3, 80));
                 return new Product(productRef, 30, offers, specialOffers, combinationOffers);
             case R:
+                specialOffers.add(new SpecialOffer(3,Arrays.asList(ProductFactoryMethod.product.Q)));
                 return new Product(productRef, 50, offers, specialOffers, combinationOffers);
             case S:
                 return new Product(productRef, 20, offers, specialOffers, combinationOffers);
             case T:
                 return new Product(productRef, 20, offers, specialOffers, combinationOffers);
             case U:
+                specialOffers.add(new SpecialOffer(3,Arrays.asList(ProductFactoryMethod.product.U)));
                 return new Product(productRef, 40, offers, specialOffers, combinationOffers);
             case V:
                 offers.add(new Offer(2, 90));
@@ -87,4 +90,5 @@ public class ProductFactory implements ProductFactoryMethod {
         }
     }
 }
+
 
