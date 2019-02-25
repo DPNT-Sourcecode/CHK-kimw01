@@ -73,7 +73,7 @@ public class CheckoutSolution {
         // special offers
         processSpecialOffers(items, products.stream().filter(p -> p.haveSpecialOffer()).collect(Collectors.toList()));
         // offers
-        processOffers(items, products.stream().filter(p -> !p.getOfferList().isEmpty()).distinct().collect(Collectors.toList()));
+        processOffers(items, products.stream().distinct().filter(p -> !p.getOfferList().isEmpty()).collect(Collectors.toList()));
 
         return getTotalPrice();
     }
@@ -131,6 +131,7 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
 
