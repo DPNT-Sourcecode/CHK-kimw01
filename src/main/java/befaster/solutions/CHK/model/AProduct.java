@@ -10,6 +10,10 @@ import java.util.List;
 public class AProduct extends Product {
 
 
+    public AProduct(final String productRef, final Integer price, final boolean haveOffer, final boolean haveSpecialOffer, final boolean haveCombinationOffer){
+        super(productRef,price,haveOffer,haveSpecialOffer,haveCombinationOffer);
+    }
+
     @Override
     public List<Offer> getListOffer() {
         return null;
@@ -60,3 +64,4 @@ public class AProduct extends Product {
 
     }
 }
+

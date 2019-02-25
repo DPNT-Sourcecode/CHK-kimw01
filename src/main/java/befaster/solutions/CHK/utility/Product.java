@@ -10,7 +10,7 @@ public abstract class Product {
     private boolean haveSpecialOffer;
     private boolean haveCombinationOffer;
 
-    public Product(final String productRef, final Integer price, final boolean haveOffer, final boolean haveSpecialOffer, final boolean haveCombinationOffer){
+    public Product(String productRef, Integer price, boolean haveOffer, boolean haveSpecialOffer, boolean haveCombinationOffer){
         this.productRef = productRef;
         this.price = price;
         this.haveOffer = haveOffer;
@@ -59,5 +59,6 @@ public abstract class Product {
 
     public abstract void priceCombinationOfferOperation(Integer price);
 }
+
 
 
