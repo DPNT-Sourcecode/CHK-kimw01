@@ -3,10 +3,10 @@ package befaster.solutions.CHK;
 import befaster.solutions.CHK.utility.*;
 import ch.qos.logback.core.net.SyslogOutputStream;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -111,6 +111,7 @@ public class CheckoutSolution {
 
     /**
      * Handle offers pack of the same product
+     *
      * @param items
      * @param products
      */
@@ -133,4 +134,16 @@ public class CheckoutSolution {
             }
         }
     }
+
+    /**
+     * Predicate to filter stream
+     * @param ref key to extract
+     * @param <T> function
+     * @return
+     */
+    public static <T> Predicate<T> distinctProductByRef(Function<? super T, ?> ref) {
+        Set<Object> set = ConcurrentHashMap.newKeySet();
+        return product -> set.add(ref.apply(product));
+    }
 }
+
