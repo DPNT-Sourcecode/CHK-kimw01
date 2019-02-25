@@ -18,5 +18,3 @@ public class SpecialOffer {
         return freeProducts;
     }
 }
-
-

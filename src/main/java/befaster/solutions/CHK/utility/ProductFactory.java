@@ -18,9 +18,10 @@ public class ProductFactory implements ProductFactoryMethod {
             case A:
                 offers.add(new Offer(3, 130));
                 offers.add(new Offer(5, 200));
-                offers.sort(Comparator.comparing(Offer::getNumProducts));
+                offers.sort(Comparator.comparing(Offer::getNumProducts).reversed());
                 return new Product(productRef, 50, offers, specialOffers, combinationOffers);
             case B:
+                offers.add(new Offer(2, 45));
                 return new Product(productRef, 30, offers, specialOffers, combinationOffers);
             case C:
                 return new Product(productRef, 20, offers, specialOffers, combinationOffers);
@@ -35,12 +36,16 @@ public class ProductFactory implements ProductFactoryMethod {
             case G:
                 return new Product(productRef, 20, offers, specialOffers, combinationOffers);
             case H:
+                offers.add(new Offer(5, 45));
+                offers.add(new Offer(10, 80));
+                offers.sort(Comparator.comparing(Offer::getNumProducts).reversed());
                 return new Product(productRef, 10, offers, specialOffers, combinationOffers);
             case I:
                 return new Product(productRef, 35, offers, specialOffers, combinationOffers);
             case J:
                 return new Product(productRef, 60, offers, specialOffers, combinationOffers);
             case K:
+                offers.add(new Offer(2, 120));
                 return new Product(productRef, 70, offers, specialOffers, combinationOffers);
             case L:
                 return new Product(productRef, 90, offers, specialOffers, combinationOffers);
@@ -51,8 +56,10 @@ public class ProductFactory implements ProductFactoryMethod {
             case O:
                 return new Product(productRef, 10, offers, specialOffers, combinationOffers);
             case P:
+                offers.add(new Offer(5, 200));
                 return new Product(productRef, 50, offers, specialOffers, combinationOffers);
             case Q:
+                offers.add(new Offer(3, 80));
                 return new Product(productRef, 30, offers, specialOffers, combinationOffers);
             case R:
                 return new Product(productRef, 50, offers, specialOffers, combinationOffers);
@@ -63,6 +70,9 @@ public class ProductFactory implements ProductFactoryMethod {
             case U:
                 return new Product(productRef, 40, offers, specialOffers, combinationOffers);
             case V:
+                offers.add(new Offer(2, 90));
+                offers.add(new Offer(3, 130));
+                offers.sort(Comparator.comparing(Offer::getNumProducts).reversed());
                 return new Product(productRef, 50, offers, specialOffers, combinationOffers);
             case W:
                 return new Product(productRef, 20, offers, specialOffers, combinationOffers);
@@ -77,12 +87,4 @@ public class ProductFactory implements ProductFactoryMethod {
         }
     }
 }
-
-
-
-
-
-
-
-
 
