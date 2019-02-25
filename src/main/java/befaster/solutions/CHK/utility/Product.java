@@ -43,4 +43,3 @@ public class Product {
         return !specialOffers.isEmpty();
     }
 }
-

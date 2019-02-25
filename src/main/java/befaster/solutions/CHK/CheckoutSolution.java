@@ -70,12 +70,10 @@ public class CheckoutSolution {
             Product product = factory.createProduct(ProductFactory.product.valueOf(prod));
             sumToTotalPrice(product.getPrice());
             products.add(product);
-            // special offers
-            List<Product> pList = products.stream().filter(p -> p.haveSpecialOffer()).collect(Collectors.toList());
-            processSpecialOffers(items, pList);
-            // offers
         }
-
+        // special offers
+        processSpecialOffers(items, products.stream().filter(p -> p.haveSpecialOffer()).collect(Collectors.toList()));
+        // offers
         return getTotalPrice();
     }
 
@@ -88,9 +86,3 @@ public class CheckoutSolution {
         }
     }
 }
-
-
-
-
-
-
