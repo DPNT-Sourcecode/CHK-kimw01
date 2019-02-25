@@ -32,14 +32,14 @@ enum item {
     P("P", 50, true, false),  // | 5P for 200             |
     Q("Q", 30, true, false),  // | 3Q for 80              |
     R("R", 50, false, true),  // | 3R get one Q free      |
-    S("S", 20, false, false), // buy any 3 of (S,T,X,Y,Z) for 45
-    T("T", 20, false, false), // buy any 3 of (S,T,X,Y,Z) for 45
+    S("S", 20, false, false), // buy any 3 of (S,T,X,Y,Z) for 45, 3S = 45
+    T("T", 20, false, false), // buy any 3 of (S,T,X,Y,Z) for 45, 3T = 45
     U("U", 40, false, true),   //| 3U get one U free      |
     V("V", 50, true, false),  //| 2V for 90, 3V for 130  |
     W("W", 20, false, false),
-    X("X", 17, false, false), // buy any 3 of (S,T,X,Y,Z) for 45
-    Y("Y", 20, false, false), // buy any 3 of (S,T,X,Y,Z) for 45
-    Z("Z", 21, false, false); // buy any 3 of (S,T,X,Y,Z) for 45
+    X("X", 17, false, false), // buy any 3 of (S,T,X,Y,Z) for 45, 3X = 45
+    Y("Y", 20, false, false), // buy any 3 of (S,T,X,Y,Z) for 45, 3Y = 45
+    Z("Z", 21, false, false); // buy any 3 of (S,T,X,Y,Z) for 45, 3Z = 45
     private String itemRef;
     private int price;
     private boolean haveOffer;
@@ -89,6 +89,16 @@ enum item {
         } else if (this.equals(V)) {
             offers.add(offer.V1);
             offers.add(offer.V2);
+        } else if(this.equals(S)){
+            offers.add(offer.S);
+        } else if(this.equals(T)){
+            offers.add(offer.T);
+        } else if(this.equals(X)){
+            offers.add(offer.X);
+        } else if(this.equals(Y)){
+            offers.add(offer.Y);
+        } else if(this.equals(offer.Z)){
+            offers.add(offer.Z);
         }
 
         return offers;
@@ -127,7 +137,11 @@ enum offer {
     P(5, 200),
     Q(3, 80),
     V1(3, 130),
-    V2(2, 90);
+    V2(2, 90),
+    S(3, 45),
+    T(3, 45),
+    X(3,45),
+    Z(3,45);
     private int numItems;
     private int price;
 
@@ -149,7 +163,7 @@ enum offer {
 // specialOffer linked to item
 enum specialOffer {
     // numItems, free item object
-    E(2, item.B),
+    E(2, newitem.B),
     F(2, item.F),
     N(3, item.M),
     R(3, item.Q),
@@ -321,8 +335,3 @@ public class CheckoutSolution {
         return items;
     }
 }
-
-
-
-
-
