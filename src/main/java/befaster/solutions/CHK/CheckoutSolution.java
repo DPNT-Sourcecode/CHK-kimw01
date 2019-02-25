@@ -67,7 +67,7 @@ public class CheckoutSolution {
 
         // create basket list of products on runtime
         List<Product> products = new ArrayList<Product>();
-        for(String prod : items){
+        for (String prod : items) {
             ProductFactory factory = new ProductFactory();
             Product product = factory.createProduct(ProductFactory.product.valueOf(prod));
             sumToTotalPrice(product.getPrice());
@@ -81,20 +81,26 @@ public class CheckoutSolution {
 
     /**
      * handling of offers with free items
+     *
      * @param items
      * @param products
      */
-    private void processSpecialOffers(final List<String> items, final List<Product> products){
-        if(!products.isEmpty()){
-            for(Product product:products){
-                for(SpecialOffer so: product.getSpecialOffers()){
+    private void processSpecialOffers(final List<String> items, final List<Product> products) {
+        if (!products.isEmpty()) {
+            for (Product product : products) {
+                for (SpecialOffer so : product.getSpecialOffers()) {
                     int numPack = Collections.frequency(items, product.getProductRef().getRef()) / so.getNumItems();
-                    while(numPack>0){
-                        for(ProductFactoryMethod.product freeProduct : so.getFreeProducts()){
-                           Integer price = new ProductFactory().createProduct(freeProduct).getPrice();
-                           sumToTotalPrice(-price);
-                           numPack --;
-                           items.remove(freeProduct.getRef());
+                    while (numPack > 0) {
+                        for (ProductFactoryMethod.product freeProduct : so.getFreeProducts()) {
+                            Integer price = new ProductFactory().createProduct(freeProduct).getPrice();
+                            sumToTotalPrice(-price);
+                            numPack--;
+                            // remove free products from items
+                            items.remove(freeProduct.getRef());
+                            // remove pack products from items
+                            for(int i = so.getNumItems(); i>0; i--){
+                                items.remove(product.getProductRef());
+                            }
                         }
                     }
                 }
@@ -102,5 +108,6 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
