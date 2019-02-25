@@ -63,18 +63,26 @@ public class CheckoutSolution {
             return -1;
         }
 
-        // create product on runtime
+        // create basket list of products on runtime
+        List<Product> products = new ArrayList<Product>();
         for(String prod : items){
             ProductFactory factory = new ProductFactory();
             Product product = factory.createProduct(ProductFactory.product.valueOf(prod));
             sumToTotalPrice(product.getPrice());
+            products.add(product);
+            // special offers
+
+            // offers
         }
 
         return getTotalPrice();
     }
 
+    private void processSpecialOffers(List<String> items, final item product){
 
+    }
 }
+
 
 
 
