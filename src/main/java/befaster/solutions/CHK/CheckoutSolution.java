@@ -112,15 +112,14 @@ public class CheckoutSolution {
             for(Product product: products){
                 int remainItems = products.size();
                 for(Offer offer : product.getOfferList()){
-                    sumToTotalPrice(remainItems / offer.getNumProducts());
+                    // substract unitary price
+                    for(int i = offer.getNumProducts(); i>0 ; i--){
+                        sumToTotalPrice(-product.getPrice());
+                    }
+                    // sum the pack price
+                    sumToTotalPrice((remainItems / offer.getNumProducts()) * offer.getPrice());
                 }
             }
         }
     }
 }
-
-
-
-
-
-
