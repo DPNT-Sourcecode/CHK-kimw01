@@ -18,7 +18,7 @@ public class Product {
         this.combinationOffers = combinationOffers;
     }
 
-    public String getProductRef() {
+    public ProductFactoryMethod.product getProductRef() {
         return productRef;
     }
 
@@ -38,3 +38,4 @@ public class Product {
         return combinationOffers;
     }
 }
+
