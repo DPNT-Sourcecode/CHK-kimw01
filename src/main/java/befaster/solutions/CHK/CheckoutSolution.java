@@ -130,6 +130,10 @@ public class CheckoutSolution {
                     }
                     // sum the pack price
                     sumToTotalPrice((products.size() / offer.getNumProducts()) * offer.getPrice());
+                    // if the list of items is empty go out of substract process
+                    if(items.isEmpty()){
+                        break;
+                    }
                 }
 
             }
@@ -147,6 +151,7 @@ public class CheckoutSolution {
         return product -> set.add(ref.apply(product));
     }
 }
+
 
 
 
