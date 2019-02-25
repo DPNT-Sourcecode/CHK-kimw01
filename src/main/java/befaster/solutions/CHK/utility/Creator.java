@@ -1,4 +1,6 @@
 package befaster.solutions.CHK.utility;
 
-public class Creator {
+public abstract class Creator {
+
+    public abstract Product factoryMethod();
 }

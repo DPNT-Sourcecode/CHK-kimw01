@@ -28,3 +28,15 @@
 | Y    | 20    | buy any 3 of (S,T,X,Y,Z) for 45 |
 | Z    | 21    | buy any 3 of (S,T,X,Y,Z) for 45 |
 +------+-------+---------------------------------+
+
+Hi!
+
+Given that the complexity of problem is growing will be necessary design a new solution.
+I think that the best solution is apply a pattern.
+I think that a good pattern to do a well solution is the abstract factory pattern to create products and
+the offers linked to these products.
+
+How the premises of the problem are a little bit ambiguous I will change the steps of process:
+1 - calculate first the total price without offers
+2 - apply the offers
+LET'S GO!
