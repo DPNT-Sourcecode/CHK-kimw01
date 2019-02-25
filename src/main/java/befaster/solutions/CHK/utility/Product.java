@@ -2,20 +2,20 @@ package befaster.solutions.CHK.utility;
 
 import java.util.List;
 
-public abstract class Product {
+public class Product {
 
     private String productRef;
     private Integer price;
-    private boolean haveOffer;
-    private boolean haveSpecialOffer;
-    private boolean haveCombinationOffer;
+    private List<Offer> offerList;
+    private List<SpecialOffer> specialOffers;
+    private List<CombinationOffer> combinationOffers;
 
-    public Product(String productRef, Integer price, boolean haveOffer, boolean haveSpecialOffer, boolean haveCombinationOffer){
+    public Product(String productRef, Integer price, List<Offer> offerList, List<SpecialOffer> specialOffers, List<CombinationOffer> combinationOffers){
         this.productRef = productRef;
         this.price = price;
-        this.haveOffer = haveOffer;
-        this.haveSpecialOffer = haveSpecialOffer;
-        this.haveCombinationOffer = haveCombinationOffer;
+        this.offerList = offerList;
+        this.specialOffers = specialOffers;
+        this.combinationOffers = combinationOffers;
     }
 
     public String getProductRef() {
@@ -26,39 +26,15 @@ public abstract class Product {
         return price;
     }
 
-    public boolean isHaveOffer() {
-        return haveOffer;
+    public List<Offer> getOfferList() {
+        return offerList;
     }
 
-    public boolean isHaveSpecialOffer() {
-        return haveSpecialOffer;
+    public List<SpecialOffer> getSpecialOffers() {
+        return specialOffers;
     }
 
-    public boolean isHaveCombinationOffer() {
-        return haveCombinationOffer;
+    public List<CombinationOffer> getCombinationOffers() {
+        return combinationOffers;
     }
-
-    // abstract methods of operations
-    public abstract List<Offer> getListOffer();
-
-    public abstract void setListOffer();
-
-    public abstract List<SpecialOffer> getListSpecialOffer();
-
-    public abstract void setListSpecialOffer();
-
-    public abstract List<CombinationOffer> getListCombinationOffer();
-
-    public abstract void setListCombinationOffer();
-
-    public abstract void priceOperation(Integer price, List<String> basketItems);
-
-    public abstract void priceOfferOperation(Integer price);
-
-    public abstract void priceSpecialOfferOperation(Integer price);
-
-    public abstract void priceCombinationOfferOperation(Integer price);
 }
-
-
-
