@@ -32,14 +32,14 @@ enum item {
     P("P", 50, true, false),  // | 5P for 200             |
     Q("Q", 30, true, false),  // | 3Q for 80              |
     R("R", 50, false, true),  // | 3R get one Q free      |
-    S("S", 20, false, false), // buy any 3 of (S,T,X,Y,Z) for 45, 3S = 45
-    T("T", 20, false, false), // buy any 3 of (S,T,X,Y,Z) for 45, 3T = 45
+    S("S", 20, true, false), // buy any 3 of (S,T,X,Y,Z) for 45, 3S = 45
+    T("T", 20, true, false), // buy any 3 of (S,T,X,Y,Z) for 45, 3T = 45
     U("U", 40, false, true),   //| 3U get one U free      |
     V("V", 50, true, false),  //| 2V for 90, 3V for 130  |
     W("W", 20, false, false),
-    X("X", 17, false, false), // buy any 3 of (S,T,X,Y,Z) for 45, 3X = 45
-    Y("Y", 20, false, false), // buy any 3 of (S,T,X,Y,Z) for 45, 3Y = 45
-    Z("Z", 21, false, false); // buy any 3 of (S,T,X,Y,Z) for 45, 3Z = 45
+    X("X", 17, true, false), // buy any 3 of (S,T,X,Y,Z) for 45, 3X = 45
+    Y("Y", 20, true, false), // buy any 3 of (S,T,X,Y,Z) for 45, 3Y = 45
+    Z("Z", 21, true, false); // buy any 3 of (S,T,X,Y,Z) for 45, 3Z = 45
     private String itemRef;
     private int price;
     private boolean haveOffer;
@@ -336,4 +336,5 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 

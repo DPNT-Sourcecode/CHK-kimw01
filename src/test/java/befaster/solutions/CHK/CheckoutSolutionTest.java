@@ -31,7 +31,6 @@ public class CheckoutSolutionTest {
         assertThat(checkout.checkout("P"), equalTo(50));
         assertThat(checkout.checkout("SSS"), equalTo(45));
         assertThat(checkout.checkout("TXY"), equalTo(45));
-
     }
 
     @Test
@@ -140,4 +139,5 @@ public class CheckoutSolutionTest {
         assertThat(checkout.checkout("FABBACxCDDAE@F"), equalTo(-1));
     }
 }
+
 
