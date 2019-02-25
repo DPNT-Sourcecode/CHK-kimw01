@@ -39,4 +39,3 @@ the offers linked to these products.
 How the premises of the problem are a little bit ambiguous I will change the steps of process:
 1 - calculate first the total price without offers
 2 - apply the offers
-LET'S GO!
