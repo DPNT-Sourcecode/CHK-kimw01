@@ -121,6 +121,23 @@ enum item {
 
         return specialOffers;
     }
+
+    // get combination offers
+    public ArrayList<combinationOffer> getCombinationOffers() {
+        ArrayList<combinationOffer> combOffers = new ArrayList<combinationOffer>();
+        if (this.equals(S)) {
+            combOffers.add(combinationOffer.S);
+        } else if (this.equals(T)) {
+            combOffers.add(combinationOffer.T);
+        } else if (this.equals(X)) {
+            combOffers.add(combinationOffer.X);
+        } else if (this.equals(Y)) {
+            combOffers.add(combinationOffer.Y);
+        } else if (this.equals(Z)) {
+            combOffers.add(combinationOffer.Z);
+        }
+        return combOffers;
+    }
 }
 
 // offer linked to item
@@ -188,7 +205,7 @@ enum specialOffer {
     }
 }
 
-enum combinationOffer{
+enum combinationOffer {
     S(3, Arrays.asList(item.T, item.X, item.Y, item.Z)),
     T(3, Arrays.asList(item.T, item.X, item.Y, item.Z)),
     X(3, Arrays.asList(item.T, item.X, item.Y, item.Z)),
@@ -197,7 +214,7 @@ enum combinationOffer{
     private int numItems;
     private List<item> itemsRefList;
 
-    combinationOffer(final int numItems, final List<item> itemsRefList){
+    combinationOffer(final int numItems, final List<item> itemsRefList) {
         this.numItems = numItems;
         this.itemsRefList = itemsRefList;
     }
@@ -210,6 +227,7 @@ enum combinationOffer{
         return itemsRefList;
     }
 }
+
 public class CheckoutSolution {
 
     /*
@@ -358,6 +376,7 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
 
 
