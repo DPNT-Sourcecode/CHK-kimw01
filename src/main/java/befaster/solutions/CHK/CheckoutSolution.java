@@ -116,22 +116,24 @@ public class CheckoutSolution {
      */
     private void processOffers(final List<String> items, final List<Product> products) {
         if (!products.isEmpty()) {
-            //for (Product product : products) {
-                for (Offer offer : products.get(0).getOfferList()) {
+            // every product must be handle once but is not possible apply distinct on stream because every product is an own instance
+            for (Product product : products) {
+                for (Offer offer : product.getOfferList()) {
                     // substract unitary price
                     for (int i = offer.getNumProducts(); i > 0; i--) {
-                        sumToTotalPrice(-products.get(0).getPrice());
+                        sumToTotalPrice(-product.getPrice());
                         // remove pack products from items
-                        items.remove(products.get(0).getProductRef().getRef());
+                        items.remove(product.getProductRef().getRef());
                     }
                     // sum the pack price
                     sumToTotalPrice((products.size() / offer.getNumProducts()) * offer.getPrice());
                 }
 
-            //}
+            }
         }
     }
 }
+
 
 
 
