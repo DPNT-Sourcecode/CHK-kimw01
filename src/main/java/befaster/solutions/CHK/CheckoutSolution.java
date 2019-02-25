@@ -63,7 +63,7 @@ public class CheckoutSolution {
         // create product on runtime
         for(String prod : items){
             ProductFactory factory = new ProductFactory();
-            factory.createProduct(prod);
+            factory.createProduct(ProductFactory.product.valueOf(prod));
         }
 
         return getTotalPrice();
@@ -71,5 +71,3 @@ public class CheckoutSolution {
 
 
 }
-
-

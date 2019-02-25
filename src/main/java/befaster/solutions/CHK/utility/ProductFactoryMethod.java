@@ -38,5 +38,3 @@ public interface ProductFactoryMethod {
     }
     Product createProduct(product productRef);
 }
-
-
