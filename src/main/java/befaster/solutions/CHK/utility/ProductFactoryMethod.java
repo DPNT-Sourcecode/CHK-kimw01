@@ -23,7 +23,7 @@ public interface ProductFactoryMethod {
         Q("Q"),
         R("R"),
         S("S"),
-        T("Y"),
+        T("T"),
         U("U"),
         V("V"),
         W("W"),
@@ -42,5 +42,6 @@ public interface ProductFactoryMethod {
     }
     Product createProduct(product productRef);
 }
+
 
 
