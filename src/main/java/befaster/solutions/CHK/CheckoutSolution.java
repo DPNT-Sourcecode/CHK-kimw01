@@ -212,10 +212,10 @@ enum specialOffer {
 
 enum combinationOffer {
     S(3, Arrays.asList(item.T, item.X, item.Y, item.Z)),
-    T(3, Arrays.asList(item.T, item.X, item.Y, item.Z)),
-    X(3, Arrays.asList(item.T, item.X, item.Y, item.Z)),
-    Y(3, Arrays.asList(item.T, item.X, item.Y, item.Z)),
-    Z(3, Arrays.asList(item.T, item.X, item.Y, item.Z));
+    T(3, Arrays.asList(item.S, item.X, item.Y, item.Z)),
+    X(3, Arrays.asList(item.T, item.S, item.Y, item.Z)),
+    Y(3, Arrays.asList(item.T, item.X, item.S, item.Z)),
+    Z(3, Arrays.asList(item.T, item.X, item.Y, item.S));
     private int numItems;
     private List<item> itemsRefList;
 
@@ -346,6 +346,9 @@ public class CheckoutSolution {
                                 items.remove(items.indexOf(i.getItemRef()));
                                 countPack ++;
                             }
+                            if(countPack==3){
+                                break;
+                            }
                         }
                     }
                 }
@@ -400,4 +403,5 @@ public class CheckoutSolution {
         return items;
     }
 }
+
 
