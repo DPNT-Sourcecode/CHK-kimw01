@@ -84,7 +84,7 @@ public class CheckoutSolution {
         if (!products.isEmpty()) {
             for (Product product : products) {
                 for(CombinationOffer co : product.getCombinationOffers()){
-                    
+
                 }
             }
         }
@@ -236,6 +236,7 @@ public class CheckoutSolution {
         return product -> set.add(ref.apply(product));
     }
 }
+
 
 
 
