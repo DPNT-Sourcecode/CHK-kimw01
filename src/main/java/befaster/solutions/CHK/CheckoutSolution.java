@@ -84,7 +84,9 @@ public class CheckoutSolution {
         if (!products.isEmpty()) {
             for (Product product : products) {
                 for(CombinationOffer co : product.getCombinationOffers()){
-
+                    for(ProductFactoryMethod.product p : co.getProductsRef()){
+                        
+                    }
                 }
             }
         }
