@@ -57,4 +57,7 @@ probably is because only when exist the sequence STXYZ must be applied the offer
  ??????????????????????????????????????????????????
 
 I'm little bit ofuscated, my test pass but not pass the deploy, I think that I cannot finish the technical test.
-There is something that I do not understand, I felt extreme ambiguity in the definitions.
+There is something that I do not understand, I felt extreme ambiguity in the notes definitions or simply i'm not
+the right person for the level of demand to apply a solution.
+
+Any way, Thanks.
