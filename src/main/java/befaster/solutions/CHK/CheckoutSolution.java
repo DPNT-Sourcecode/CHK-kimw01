@@ -121,19 +121,22 @@ public class CheckoutSolution {
             List<Product> productList = products.stream().filter(distinctProductByRef(Product::getProductRef)).collect(Collectors.toList());
             for (Product product : productList) {
                 for (Offer offer : product.getOfferList()) {
-                    // substract unitary price and count products processed
-                    int count = 0;
-                    for (int i = offer.getNumProducts(); i > 0; i--) {
-                        sumToTotalPrice(-product.getPrice());
-                        // remove pack products from items
-                        items.remove(product.getProductRef().getRef());
-                        count ++;
-                    }
-                    // sum the pack price
-                    sumToTotalPrice((count / offer.getNumProducts()) * offer.getPrice());
-                    // if the list of items is empty go out of substract process
-                    if(items.isEmpty()){
-                        break;
+                    //only process if there is a pack
+                    if (items.size() / offer.getNumProducts() > 0) {
+                        // substract unitary price and count products processed
+                        int count = 0;
+                        for (int i = offer.getNumProducts(); i > 0; i--) {
+                            sumToTotalPrice(-product.getPrice());
+                            // remove pack products from items
+                            items.remove(product.getProductRef().getRef());
+                            count++;
+                        }
+                        // sum the pack price
+                        sumToTotalPrice((count / offer.getNumProducts()) * offer.getPrice());
+                        // if the list of items is empty go out of substract process
+                        if (items.isEmpty()) {
+                            break;
+                        }
                     }
                 }
 
@@ -143,6 +146,7 @@ public class CheckoutSolution {
 
     /**
      * Predicate to filter stream
+     *
      * @param ref key to extract
      * @param <T> function
      * @return
@@ -152,3 +156,4 @@ public class CheckoutSolution {
         return product -> set.add(ref.apply(product));
     }
 }
+
