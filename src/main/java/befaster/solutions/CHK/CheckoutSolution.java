@@ -101,6 +101,10 @@ public class CheckoutSolution {
                                         // sublist of items, remove so.getNumItems + so.getFreeProducts().size()
                                         // TODO be careful
                                         remainItems = remainItems.subList(0, remainItems.size() - (so.getNumItems() + 1));
+                                        for (int i = (so.getNumItems() +1); i > 0; i--) {
+                                            items.remove(product.getProductRef().getRef());
+                                        }
+
                                     } else {
                                         break;
                                     }
@@ -172,6 +176,7 @@ public class CheckoutSolution {
         return product -> set.add(ref.apply(product));
     }
 }
+
 
 
 
