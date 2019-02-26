@@ -82,7 +82,9 @@ public class CheckoutSolution {
 
         if (!products.isEmpty()) {
             for (Product product : products) {
-                
+                for(SpecialOffer so: product.getSpecialOffers()){
+                    
+                }
                 /*
                 product.getSpecialOffers().forEach(so -> {
                     List<String> itemList = items.stream().filter(i -> i.equals(product.getProductRef().getRef())).collect(Collectors.toList());
@@ -205,4 +207,5 @@ public class CheckoutSolution {
         return product -> set.add(ref.apply(product));
     }
 }
+
 
