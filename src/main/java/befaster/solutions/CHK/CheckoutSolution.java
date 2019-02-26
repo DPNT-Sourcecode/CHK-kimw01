@@ -64,6 +64,7 @@ public class CheckoutSolution {
             return -1;
         }
 
+        // perfomance and avoid process special offers
         // create basket list of products on runtime
         List<Product> products = new ArrayList<Product>();
         for (String prod : items) {
@@ -72,6 +73,7 @@ public class CheckoutSolution {
             sumToTotalPrice(product.getPrice());
             products.add(product);
         }
+
         // special offers
         processSpecialOffers(items, products.stream().filter(p -> (!p.getSpecialOffers().isEmpty() && p.getOfferList().isEmpty() && p.getCombinationOffers().isEmpty())).collect(Collectors.toList()));
         // offers
@@ -83,7 +85,7 @@ public class CheckoutSolution {
 
     private void processCombinationOffers(final String skus, final List<String> items, final List<Product> products) {
 
-        if (!products.isEmpty()) {
+        if (!products.isEmpty() && items.size() >1) {
             for (Product product : products) {
                 if (!items.isEmpty()) {
                     for (CombinationOffer co : product.getCombinationOffers()) {
@@ -99,7 +101,6 @@ public class CheckoutSolution {
                                 }
                                 sumToTotalPrice(co.getPrice());
                             }
-
                         }
                     }
                 }
@@ -109,7 +110,7 @@ public class CheckoutSolution {
 
     private void processSpecialOffers(final List<String> items, final List<Product> products) {
 
-        if (!products.isEmpty()) {
+        if (!products.isEmpty() && items.size() >1) {
             for (Product product : products) {
                 for (SpecialOffer so : product.getSpecialOffers()) {
                     for (ProductFactoryMethod.product freeProduct : so.getFreeProducts()) {
@@ -157,7 +158,7 @@ public class CheckoutSolution {
      */
     private void processSpecialOffersDeprecated(final List<String> items, final List<Product> products) {
 
-        if (!products.isEmpty()) {
+        if (!products.isEmpty() && items.size() >1) {
             for (Product product : products) {
                 for (SpecialOffer so : product.getSpecialOffers()) {
                     int numPack = Collections.frequency(items, product.getProductRef().getRef()) / so.getNumItems();
@@ -211,7 +212,7 @@ public class CheckoutSolution {
      * @param products
      */
     private void processOffers(final List<String> items, final List<Product> products) {
-        if (!products.isEmpty()) {
+        if (!products.isEmpty() && items.size() >1) {
             // every product must be handle once but is not possible apply distinct on stream because every product is an own instance
             // we need a predicate to filter product list first
             List<Product> productList = products.stream().filter(distinctProductByRef(Product::getProductRef)).collect(Collectors.toList());
@@ -253,3 +254,4 @@ public class CheckoutSolution {
         return product -> set.add(ref.apply(product));
     }
 }
+
