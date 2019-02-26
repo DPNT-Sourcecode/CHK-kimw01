@@ -96,6 +96,7 @@ public class CheckoutSolution {
                             if (product.getProductRef().getRef().equals(freeProduct.getRef())) {
                                 // special list of items to manage same free products
                                 List<String> remainItems = items.stream().filter(i -> i.equals(product.getProductRef().getRef())).collect(Collectors.toList());
+
                                 while (remainItems.iterator().hasNext() && ((remainItems.size() / so.getNumItems()) > 0)) {
                                     if (remainItems.size() > so.getNumItems()) {
                                         // sublist of items, remove so.getNumItems + so.getFreeProducts().size()
@@ -180,6 +181,7 @@ public class CheckoutSolution {
         return product -> set.add(ref.apply(product));
     }
 }
+
 
 
 
