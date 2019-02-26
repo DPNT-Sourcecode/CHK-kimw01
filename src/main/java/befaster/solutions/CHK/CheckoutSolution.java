@@ -109,6 +109,8 @@ public class CheckoutSolution {
                                         break;
                                     }
                                 }
+                                // number of products to substract
+                                sumToTotalPrice(-(remainItems.size() * product.getPrice()));
                                 numPack--;
                             } else {
                                 Integer price = new ProductFactory().createProduct(freeProduct).getPrice();
@@ -177,3 +179,4 @@ public class CheckoutSolution {
         return product -> set.add(ref.apply(product));
     }
 }
+
