@@ -49,3 +49,11 @@ assertThat(checkout.checkout("STX"), equalTo(45));
 assertThat(checkout.checkout("STXSTX"), equalTo(90));
 this cases the offer have been applied.... ambiguous.. ok...
 probably is because only when exist the sequence STXYZ must be applied the offer? will try.
+
+ - {"method":"checkout","params":["S"],"id":"CHK_R5_021"}, expected: 20, got: 0
+ - {"method":"checkout","params":["T"],"id":"CHK_R5_022"}, expected: 20, got: 0
+ - {"method":"checkout","params":["X"],"id":"CHK_R5_026"}, expected: 17, got: 0
+
+ ??????????????????????????????????????????????????
+
+I'm little bit ofuscated, my test pass but not pass the deploy, I think that 
