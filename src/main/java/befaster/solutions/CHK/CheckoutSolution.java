@@ -71,9 +71,9 @@ public class CheckoutSolution {
             products.add(product);
         }
         // special offers
-        processSpecialOffers(items, products.stream().filter(p -> !p.getSpecialOffers().isEmpty()).collect(Collectors.toList()));
+        processSpecialOffers(items, products.stream().filter(p -> (!p.getSpecialOffers().isEmpty() && p.getOfferList().isEmpty() && p.getCombinationOffers().isEmpty())).collect(Collectors.toList()));
         // offers
-        processOffers(items, products.stream().distinct().filter(p -> !p.getOfferList().isEmpty()).collect(Collectors.toList()));
+        processOffers(items, products.stream().distinct().filter(p -> (p.getSpecialOffers().isEmpty() && !p.getOfferList().isEmpty() && p.getCombinationOffers().isEmpty())).collect(Collectors.toList()));
 
         return getTotalPrice();
     }
@@ -86,7 +86,6 @@ public class CheckoutSolution {
      */
     private void processSpecialOffers(final List<String> items, final List<Product> products) {
         if (!products.isEmpty()) {
-
             for (Product product : products) {
                 for (SpecialOffer so : product.getSpecialOffers()) {
                     int numPack = Collections.frequency(items, product.getProductRef().getRef()) / so.getNumItems();
@@ -153,9 +152,3 @@ public class CheckoutSolution {
         return product -> set.add(ref.apply(product));
     }
 }
-
-
-
-
-
-
