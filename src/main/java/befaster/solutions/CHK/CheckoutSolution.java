@@ -71,7 +71,7 @@ public class CheckoutSolution {
             products.add(product);
         }
         // special offers
-        processSpecialOffers(items, products.stream().filter(p -> (!p.getSpecialOffers().isEmpty() && p.getOfferList().isEmpty() && p.getCombinationOffers().isEmpty())).collect(Collectors.toList()));
+        processSpecialOffers2(items, products.stream().filter(p -> (!p.getSpecialOffers().isEmpty() && p.getOfferList().isEmpty() && p.getCombinationOffers().isEmpty())).collect(Collectors.toList()));
         // offers
         processOffers(items, products.stream().distinct().filter(p -> (p.getSpecialOffers().isEmpty() && !p.getOfferList().isEmpty() && p.getCombinationOffers().isEmpty())).collect(Collectors.toList()));
 
@@ -84,7 +84,18 @@ public class CheckoutSolution {
             for (Product product : products) {
                 for(SpecialOffer so: product.getSpecialOffers()){
                     for(ProductFactoryMethod.product freeProduct : so.getFreeProducts()){
+                        Product free = new ProductFactory().createProduct(freeProduct);
+                        int numPack = Collections.frequency(items, product.getProductRef().getRef()) / so.getNumItems();
+                        // delete pack offer
+                        for(int i = so.getNumItems(); i >0 ; i--) {
+                            items.remove(product.getProductRef().getRef());
+                        }
 
+                        if(items.contains(free.getProductRef().getRef())){
+                            sumToTotalPrice(-free.getPrice());
+                            // remove the item free from basket
+                            items.remove(free.getProductRef().getRef());
+                        }
                     }
                 }
                 /*
@@ -209,6 +220,7 @@ public class CheckoutSolution {
         return product -> set.add(ref.apply(product));
     }
 }
+
 
 
 
