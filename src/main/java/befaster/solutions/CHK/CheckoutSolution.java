@@ -238,4 +238,3 @@ public class CheckoutSolution {
         return product -> set.add(ref.apply(product));
     }
 }
-
