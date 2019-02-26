@@ -87,14 +87,16 @@ public class CheckoutSolution {
                         Product free = new ProductFactory().createProduct(freeProduct);
                         int numPack = Collections.frequency(items, product.getProductRef().getRef()) / so.getNumItems();
                         // delete pack offer
-                        for (int i = so.getNumItems(); i > 0; i--) {
-                            items.remove(product.getProductRef().getRef());
-                        }
+                        if(numPack>0) {
+                            for (int i = so.getNumItems(); i > 0; i--) {
+                                items.remove(product.getProductRef().getRef());
+                            }
 
-                        if (items.contains(free.getProductRef().getRef())) {
-                            sumToTotalPrice(-free.getPrice());
-                            // remove the item free from basket
-                            items.remove(free.getProductRef().getRef());
+                            if (items.contains(free.getProductRef().getRef())) {
+                                sumToTotalPrice(-free.getPrice());
+                                // remove the item free from basket
+                                items.remove(free.getProductRef().getRef());
+                            }
                         }
                     }
                 }
@@ -186,8 +188,9 @@ public class CheckoutSolution {
             List<Product> productList = products.stream().filter(distinctProductByRef(Product::getProductRef)).collect(Collectors.toList());
             for (Product product : productList) {
                 for (Offer offer : product.getOfferList()) {
+                    int numPack = Collections.frequency(items, product.getProductRef().getRef()) / offer.getNumProducts();
                     //only process if there is a pack
-                    if (items.size() / offer.getNumProducts() > 0) {
+                    if (items.size() / offer.getNumProducts() > 0 && numPack >0) {
                         // substract unitary price and count products processed
                         int count = 0;
                         for (int i = offer.getNumProducts(); i > 0; i--) {
@@ -221,4 +224,5 @@ public class CheckoutSolution {
         return product -> set.add(ref.apply(product));
     }
 }
+
 
