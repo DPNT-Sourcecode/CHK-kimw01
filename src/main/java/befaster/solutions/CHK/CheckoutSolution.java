@@ -83,7 +83,9 @@ public class CheckoutSolution {
         if (!products.isEmpty()) {
             for (Product product : products) {
                 for(SpecialOffer so: product.getSpecialOffers()){
-                    
+                    for(ProductFactoryMethod.product freeProduct : so.getFreeProducts()){
+
+                    }
                 }
                 /*
                 product.getSpecialOffers().forEach(so -> {
@@ -207,5 +209,6 @@ public class CheckoutSolution {
         return product -> set.add(ref.apply(product));
     }
 }
+
 
 
