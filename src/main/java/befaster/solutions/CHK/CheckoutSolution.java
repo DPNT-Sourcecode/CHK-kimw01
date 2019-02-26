@@ -71,7 +71,7 @@ public class CheckoutSolution {
             products.add(product);
         }
         // special offers
-        processSpecialOffers(items, products.stream().filter(p -> p.haveSpecialOffer()).collect(Collectors.toList()));
+        processSpecialOffers(items, products.stream().filter(p -> !p.getSpecialOffers().isEmpty()).collect(Collectors.toList()));
         // offers
         processOffers(items, products.stream().distinct().filter(p -> !p.getOfferList().isEmpty()).collect(Collectors.toList()));
 
@@ -122,16 +122,16 @@ public class CheckoutSolution {
             List<Product> productList = products.stream().filter(distinctProductByRef(Product::getProductRef)).collect(Collectors.toList());
             for (Product product : productList) {
                 for (Offer offer : product.getOfferList()) {
-                    // substract unitary price
-                    int remainProducts = 0;
+                    // substract unitary price and count products processed
+                    int count = 0;
                     for (int i = offer.getNumProducts(); i > 0; i--) {
                         sumToTotalPrice(-product.getPrice());
                         // remove pack products from items
                         items.remove(product.getProductRef().getRef());
-                        remainProducts ++;
+                        count ++;
                     }
                     // sum the pack price
-                    sumToTotalPrice((remainProducts / offer.getNumProducts()) * offer.getPrice());
+                    sumToTotalPrice((count / offer.getNumProducts()) * offer.getPrice());
                     // if the list of items is empty go out of substract process
                     if(items.isEmpty()){
                         break;
@@ -153,6 +153,7 @@ public class CheckoutSolution {
         return product -> set.add(ref.apply(product));
     }
 }
+
 
 
 
