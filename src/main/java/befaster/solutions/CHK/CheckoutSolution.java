@@ -78,6 +78,12 @@ public class CheckoutSolution {
         return getTotalPrice();
     }
 
+    private void processSpecialOffers2((final List<String> items, final List<Product> products) {
+
+        if (!products.isEmpty()) {
+
+        }
+    }
     /**
      * handle offers with free items
      *
@@ -181,6 +187,7 @@ public class CheckoutSolution {
         return product -> set.add(ref.apply(product));
     }
 }
+
 
 
 
