@@ -97,24 +97,25 @@ public class CheckoutSolution {
                                 // special list of items to manage same free products
                                 List<String> remainItems = items.stream().filter(i -> i.equals(product.getProductRef().getRef())).collect(Collectors.toList());
                                 while (remainItems.iterator().hasNext() && ((remainItems.size() / so.getNumItems()) > 0)) {
-                                    if(remainItems.size() > so.getNumItems()){
+                                    if (remainItems.size() > so.getNumItems()) {
                                         // sublist of items, remove so.getNumItems + so.getFreeProducts().size()
                                         // TODO be careful
                                         remainItems = remainItems.subList(0, remainItems.size() - (so.getNumItems() + 1));
-                                    }else{
+                                    } else {
                                         break;
                                     }
                                 }
-                            }
-                            Integer price = new ProductFactory().createProduct(freeProduct).getPrice();
-                            // substract the unitary price of free product
-                            sumToTotalPrice(-price);
-                            numPack--;
-                            // remove free products from items
-                            items.remove(freeProduct.getRef());
-                            // remove pack products from items
-                            for (int i = so.getNumItems(); i > 0; i--) {
-                                items.remove(product.getProductRef().getRef());
+                            } else {
+                                Integer price = new ProductFactory().createProduct(freeProduct).getPrice();
+                                // substract the unitary price of free product
+                                sumToTotalPrice(-price);
+                                numPack--;
+                                // remove free products from items
+                                items.remove(freeProduct.getRef());
+                                // remove pack products from items
+                                for (int i = so.getNumItems(); i > 0; i--) {
+                                    items.remove(product.getProductRef().getRef());
+                                }
                             }
                         }
                     }
@@ -171,6 +172,7 @@ public class CheckoutSolution {
         return product -> set.add(ref.apply(product));
     }
 }
+
 
 
 
