@@ -39,3 +39,13 @@ the offers linked to these products.
 How the premises of the problem are a little bit ambiguous I will change the steps of process:
 1 - calculate first the total price without offers
 2 - apply the offers
+
+WIRD
+THAT CASE:
+assertThat(checkout.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ"), equalTo(853));
+1: have a combination fo buy any 3 of (S,T,X,Y,Z) but the result is the sum of all elements
+BUT
+assertThat(checkout.checkout("STX"), equalTo(45));
+assertThat(checkout.checkout("STXSTX"), equalTo(90));
+this cases the offer have been applied.... ambiguous.. ok...
+problaly
