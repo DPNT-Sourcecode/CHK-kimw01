@@ -90,11 +90,14 @@ public class CheckoutSolution {
                         Pattern p = Pattern.compile(sPattern);
                         Matcher matcher = p.matcher(skus);
                         if(matcher.find()){
-                            List<String> ref = Stream.of(sPattern.split("")).collect(Collectors.toList());
+                            List<String> refs = Stream.of(sPattern.split("")).collect(Collectors.toList());
+                            for(String ref : refs ){
+                                Product pro = new ProductFactory().createProduct(ProductFactoryMethod.product.valueOf(ref));
+                                sumToTotalPrice(-pro.getPrice());
+                                items.remove(pro.getProductRef().getRef());
+                            }
+                            sumToTotalPrice(co.getPrice());
                         }
-                    }
-                    for(ProductFactoryMethod.product p : co.getProductsRef()){
-
                     }
                 }
             }
@@ -247,5 +250,6 @@ public class CheckoutSolution {
         return product -> set.add(ref.apply(product));
     }
 }
+
 
 
