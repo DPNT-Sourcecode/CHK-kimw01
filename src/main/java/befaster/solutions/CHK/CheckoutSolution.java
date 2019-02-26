@@ -85,7 +85,7 @@ public class CheckoutSolution {
             for (Product product : products) {
                 for(CombinationOffer co : product.getCombinationOffers()){
                     for(ProductFactoryMethod.product p : co.getProductsRef()){
-                        
+
                     }
                 }
             }
@@ -238,3 +238,4 @@ public class CheckoutSolution {
         return product -> set.add(ref.apply(product));
     }
 }
+
