@@ -112,7 +112,7 @@ public class CheckoutSolution {
                                 }
                                 // number of products to substract
                                 sumToTotalPrice(-(remainItems.size() * product.getPrice()));
-                                numPack = Collections.frequency(items, product.getProductRef().getRef()) / so.getNumItems();
+                                numPack = ((Collections.frequency(items, product.getProductRef().getRef()) / so.getNumItems()) >1) ? (Collections.frequency(items, product.getProductRef().getRef()) / so.getNumItems()) : 0;
                             } else {
                                 Integer price = new ProductFactory().createProduct(freeProduct).getPrice();
                                 // substract the unitary price of free product
@@ -180,6 +180,7 @@ public class CheckoutSolution {
         return product -> set.add(ref.apply(product));
     }
 }
+
 
 
 
