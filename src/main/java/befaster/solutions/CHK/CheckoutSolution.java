@@ -97,7 +97,13 @@ public class CheckoutSolution {
                                 // special list of items to manage same free products
                                 List<String> remainItems = items.stream().filter(i -> i.equals(product.getProductRef().getRef())).collect(Collectors.toList());
                                 while (remainItems.iterator().hasNext() && ((remainItems.size() / so.getNumItems()) > 0)) {
-
+                                    if(remainItems.size() > so.getNumItems()){
+                                        // sublist of items, remove so.getNumItems + so.getFreeProducts().size()
+                                        // TODO be careful
+                                        remainItems = remainItems.subList(0, remainItems.size() - (so.getNumItems() + 1));
+                                    }else{
+                                        break;
+                                    }
                                 }
                             }
                             Integer price = new ProductFactory().createProduct(freeProduct).getPrice();
@@ -165,5 +171,6 @@ public class CheckoutSolution {
         return product -> set.add(ref.apply(product));
     }
 }
+
 
 
