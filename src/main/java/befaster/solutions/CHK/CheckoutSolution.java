@@ -71,14 +71,15 @@ public class CheckoutSolution {
             products.add(product);
         }
         // special offers
-        processSpecialOffers2(items, products.stream().filter(p -> (!p.getSpecialOffers().isEmpty() && p.getOfferList().isEmpty() && p.getCombinationOffers().isEmpty())).collect(Collectors.toList()));
+        processSpecialOffers(items, products.stream().filter(p -> (!p.getSpecialOffers().isEmpty() && p.getOfferList().isEmpty() && p.getCombinationOffers().isEmpty())).collect(Collectors.toList()));
         // offers
         processOffers(items, products.stream().distinct().filter(p -> (p.getSpecialOffers().isEmpty() && !p.getOfferList().isEmpty() && p.getCombinationOffers().isEmpty())).collect(Collectors.toList()));
 
+        process
         return getTotalPrice();
     }
 
-    private void processSpecialOffers2(final List<String> items, final List<Product> products) {
+    private void processSpecialOffers(final List<String> items, final List<Product> products) {
 
         if (!products.isEmpty()) {
             for (Product product : products) {
@@ -126,7 +127,7 @@ public class CheckoutSolution {
      * @param items
      * @param products
      */
-    private void processSpecialOffers(final List<String> items, final List<Product> products) {
+    private void processSpecialOffersDeprecated(final List<String> items, final List<Product> products) {
 
         if (!products.isEmpty()) {
             for (Product product : products) {
@@ -224,5 +225,6 @@ public class CheckoutSolution {
         return product -> set.add(ref.apply(product));
     }
 }
+
 
 

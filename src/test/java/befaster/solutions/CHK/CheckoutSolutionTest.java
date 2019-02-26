@@ -41,7 +41,7 @@ public class CheckoutSolutionTest {
         assertThat(checkout.checkout("P"), equalTo(50));
         assertThat(checkout.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ"), equalTo(853));
         assertThat(checkout.checkout("P"), equalTo(50));
-        assertThat(checkout.checkout("SSS"), equalTo(45));
+        assertThat(checkout.checkout("SSS"), equalTo(60));
         assertThat(checkout.checkout("STX"), equalTo(45));
         assertThat(checkout.checkout("STXSTX"), equalTo(90));
         assertThat(checkout.checkout("SSSZ"), equalTo(65));
@@ -54,7 +54,7 @@ public class CheckoutSolutionTest {
 
     @Test
     public void isolateTest(){
-        assertThat(checkout.checkout("Z"), equalTo(45));
+        assertThat(checkout.checkout("Z"), equalTo(21));
     }
 
     @Test
@@ -163,4 +163,5 @@ public class CheckoutSolutionTest {
         assertThat(checkout.checkout("FABBACxCDDAE@F"), equalTo(-1));
     }
 }
+
 
