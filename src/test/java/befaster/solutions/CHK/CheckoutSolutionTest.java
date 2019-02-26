@@ -54,7 +54,9 @@ public class CheckoutSolutionTest {
 
     @Test
     public void isolateTest(){
-        assertThat(checkout.checkout("Z"), equalTo(21));
+        assertThat(checkout.checkout("S"), equalTo(20));
+        assertThat(checkout.checkout("T"), equalTo(20));
+        assertThat(checkout.checkout("X"), equalTo(17));
     }
 
     @Test
@@ -163,4 +165,5 @@ public class CheckoutSolutionTest {
         assertThat(checkout.checkout("FABBACxCDDAE@F"), equalTo(-1));
     }
 }
+
 
