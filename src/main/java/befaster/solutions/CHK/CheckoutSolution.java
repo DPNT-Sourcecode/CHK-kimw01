@@ -75,8 +75,17 @@ public class CheckoutSolution {
         // offers
         processOffers(items, products.stream().distinct().filter(p -> (p.getSpecialOffers().isEmpty() && !p.getOfferList().isEmpty() && p.getCombinationOffers().isEmpty())).collect(Collectors.toList()));
 
-        process
+        processCombinationOffers(items, products.stream().filter(p -> (p.getSpecialOffers().isEmpty() && p.getOfferList().isEmpty() && !p.getCombinationOffers().isEmpty())).collect(Collectors.toList()));
         return getTotalPrice();
+    }
+
+    private void processCombinationOffers(final List<String> items, final List<Product> products) {
+
+        if (!products.isEmpty()) {
+            for (Product product : products) {
+
+            }
+        }
     }
 
     private void processSpecialOffers(final List<String> items, final List<Product> products) {
@@ -225,6 +234,7 @@ public class CheckoutSolution {
         return product -> set.add(ref.apply(product));
     }
 }
+
 
 
 
