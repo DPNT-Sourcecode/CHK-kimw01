@@ -123,13 +123,15 @@ public class CheckoutSolution {
             for (Product product : productList) {
                 for (Offer offer : product.getOfferList()) {
                     // substract unitary price
+                    int remainProducts = 0;
                     for (int i = offer.getNumProducts(); i > 0; i--) {
                         sumToTotalPrice(-product.getPrice());
                         // remove pack products from items
                         items.remove(product.getProductRef().getRef());
+                        remainProducts ++;
                     }
                     // sum the pack price
-                    sumToTotalPrice((products.size() / offer.getNumProducts()) * offer.getPrice());
+                    sumToTotalPrice((remainProducts / offer.getNumProducts()) * offer.getPrice());
                     // if the list of items is empty go out of substract process
                     if(items.isEmpty()){
                         break;
@@ -151,6 +153,7 @@ public class CheckoutSolution {
         return product -> set.add(ref.apply(product));
     }
 }
+
 
 
 
