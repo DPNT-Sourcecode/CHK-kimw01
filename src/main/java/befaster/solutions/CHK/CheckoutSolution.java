@@ -7,6 +7,8 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -75,15 +77,19 @@ public class CheckoutSolution {
         // offers
         processOffers(items, products.stream().distinct().filter(p -> (p.getSpecialOffers().isEmpty() && !p.getOfferList().isEmpty() && p.getCombinationOffers().isEmpty())).collect(Collectors.toList()));
 
-        processCombinationOffers(items, products.stream().filter(p -> (p.getSpecialOffers().isEmpty() && p.getOfferList().isEmpty() && !p.getCombinationOffers().isEmpty())).collect(Collectors.toList()));
+        processCombinationOffers(skus, items, products.stream().filter(p -> (p.getSpecialOffers().isEmpty() && p.getOfferList().isEmpty() && !p.getCombinationOffers().isEmpty())).collect(Collectors.toList()));
         return getTotalPrice();
     }
 
-    private void processCombinationOffers(final List<String> items, final List<Product> products) {
+    private void processCombinationOffers(final String skus, final List<String> items, final List<Product> products) {
 
         if (!products.isEmpty()) {
             for (Product product : products) {
                 for(CombinationOffer co : product.getCombinationOffers()){
+                    for(String pattern : co.getPatternList()){
+                        Pattern p = Pattern.compile(pattern);
+                        Matcher matcher = p.matcher(items.to)
+                    }
                     for(ProductFactoryMethod.product p : co.getProductsRef()){
 
                     }
@@ -238,3 +244,4 @@ public class CheckoutSolution {
         return product -> set.add(ref.apply(product));
     }
 }
+
