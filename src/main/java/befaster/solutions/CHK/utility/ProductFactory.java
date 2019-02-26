@@ -14,6 +14,7 @@ public class ProductFactory implements ProductFactoryMethod {
         List<Offer> offers = new ArrayList<Offer>();
         List<SpecialOffer> specialOffers = new ArrayList<SpecialOffer>();
         List<CombinationOffer> combinationOffers = new ArrayList<CombinationOffer>();
+        List<String> patternList = Arrays.asList("","")
         switch (productRef) {
             case A:
                 offers.add(new Offer(3, 130));
@@ -95,4 +96,5 @@ public class ProductFactory implements ProductFactoryMethod {
         }
     }
 }
+
 
