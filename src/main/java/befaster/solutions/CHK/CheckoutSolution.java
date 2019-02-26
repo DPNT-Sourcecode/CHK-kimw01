@@ -85,12 +85,21 @@ public class CheckoutSolution {
      * @param products
      */
     private void processSpecialOffers(final List<String> items, final List<Product> products) {
+
         if (!products.isEmpty()) {
             for (Product product : products) {
                 for (SpecialOffer so : product.getSpecialOffers()) {
                     int numPack = Collections.frequency(items, product.getProductRef().getRef()) / so.getNumItems();
                     while (numPack > 0) {
                         for (ProductFactoryMethod.product freeProduct : so.getFreeProducts()) {
+                            // special treat for offers with same free product
+                            if (product.getProductRef().getRef().equals(freeProduct.getRef())) {
+                                // special list of items to manage same free products
+                                List<String> remainItems = items.stream().filter(i -> i.equals(product.getProductRef().getRef())).collect(Collectors.toList());
+                                while (remainItems.iterator().hasNext() && ((remainItems.size() / so.getNumItems()) > 0)) {
+
+                                }
+                            }
                             Integer price = new ProductFactory().createProduct(freeProduct).getPrice();
                             // substract the unitary price of free product
                             sumToTotalPrice(-price);
@@ -156,4 +165,5 @@ public class CheckoutSolution {
         return product -> set.add(ref.apply(product));
     }
 }
+
 
