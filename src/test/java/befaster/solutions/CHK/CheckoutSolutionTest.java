@@ -31,6 +31,11 @@ public class CheckoutSolutionTest {
     }
 
     @Test
+    public void buyAny3Test(){
+        assertThat(checkout.checkout("STX"), equalTo(45));
+        assertThat(checkout.checkout("STXSTX"), equalTo(90));
+    }
+    @Test
     public void bigTest() {
         assertThat(checkout.checkout("NNNMM"), equalTo(135));
         assertThat(checkout.checkout("RRRQQ"), equalTo(180));
@@ -42,9 +47,6 @@ public class CheckoutSolutionTest {
         assertThat(checkout.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ"), equalTo(853));
         assertThat(checkout.checkout("P"), equalTo(50));
         assertThat(checkout.checkout("SSS"), equalTo(60));
-        assertThat(checkout.checkout("STX"), equalTo(45));
-        assertThat(checkout.checkout("STXSTX"), equalTo(90));
-        assertThat(checkout.checkout("SSSZ"), equalTo(65));
     }
 
     @Test
@@ -163,5 +165,3 @@ public class CheckoutSolutionTest {
         assertThat(checkout.checkout("FABBACxCDDAE@F"), equalTo(-1));
     }
 }
-
-

@@ -48,4 +48,4 @@ BUT
 assertThat(checkout.checkout("STX"), equalTo(45));
 assertThat(checkout.checkout("STXSTX"), equalTo(90));
 this cases the offer have been applied.... ambiguous.. ok...
-problaly
+probably is because only when exist the sequence STXYZ must be applied the offer? will try.
