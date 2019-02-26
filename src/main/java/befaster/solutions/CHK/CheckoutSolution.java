@@ -86,9 +86,12 @@ public class CheckoutSolution {
         if (!products.isEmpty()) {
             for (Product product : products) {
                 for(CombinationOffer co : product.getCombinationOffers()){
-                    for(String pattern : co.getPatternList()){
-                        Pattern p = Pattern.compile(pattern);
-                        Matcher matcher = p.matcher(items.to)
+                    for(String sPattern : co.getPatternList()){
+                        Pattern p = Pattern.compile(sPattern);
+                        Matcher matcher = p.matcher(skus);
+                        if(matcher.find()){
+                            List<String> ref = Stream.of(sPattern.split("")).collect(Collectors.toList());
+                        }
                     }
                     for(ProductFactoryMethod.product p : co.getProductsRef()){
 
@@ -244,4 +247,5 @@ public class CheckoutSolution {
         return product -> set.add(ref.apply(product));
     }
 }
+
 
