@@ -82,16 +82,16 @@ public class CheckoutSolution {
 
         if (!products.isEmpty()) {
             for (Product product : products) {
-                for(SpecialOffer so: product.getSpecialOffers()){
-                    for(ProductFactoryMethod.product freeProduct : so.getFreeProducts()){
+                for (SpecialOffer so : product.getSpecialOffers()) {
+                    for (ProductFactoryMethod.product freeProduct : so.getFreeProducts()) {
                         Product free = new ProductFactory().createProduct(freeProduct);
                         int numPack = Collections.frequency(items, product.getProductRef().getRef()) / so.getNumItems();
                         // delete pack offer
-                        for(int i = so.getNumItems(); i >0 ; i--) {
+                        for (int i = so.getNumItems(); i > 0; i--) {
                             items.remove(product.getProductRef().getRef());
                         }
 
-                        if(items.contains(free.getProductRef().getRef())){
+                        if (items.contains(free.getProductRef().getRef())) {
                             sumToTotalPrice(-free.getPrice());
                             // remove the item free from basket
                             items.remove(free.getProductRef().getRef());
@@ -117,6 +117,7 @@ public class CheckoutSolution {
             }
         }
     }
+
     /**
      * handle offers with free items
      *
@@ -141,7 +142,7 @@ public class CheckoutSolution {
                                         // sublist of items, remove so.getNumItems + so.getFreeProducts().size()
                                         // TODO be careful
                                         remainItems = remainItems.subList(0, remainItems.size() - (so.getNumItems() + 1));
-                                        for (int i = (so.getNumItems() +1); i > 0; i--) {
+                                        for (int i = (so.getNumItems() + 1); i > 0; i--) {
                                             items.remove(product.getProductRef().getRef());
                                         }
 
@@ -152,7 +153,7 @@ public class CheckoutSolution {
                                 }
                                 // number of products to substract
                                 sumToTotalPrice(-(remainItems.size() * product.getPrice()));
-                                numPack = ((Collections.frequency(items, product.getProductRef().getRef()) / so.getNumItems()) >1) ? (Collections.frequency(items, product.getProductRef().getRef()) / so.getNumItems()) : 0;
+                                numPack = ((Collections.frequency(items, product.getProductRef().getRef()) / so.getNumItems()) > 1) ? (Collections.frequency(items, product.getProductRef().getRef()) / so.getNumItems()) : 0;
                             } else {
                                 Integer price = new ProductFactory().createProduct(freeProduct).getPrice();
                                 // substract the unitary price of free product
@@ -220,3 +221,4 @@ public class CheckoutSolution {
         return product -> set.add(ref.apply(product));
     }
 }
+
