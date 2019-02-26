@@ -85,21 +85,21 @@ public class CheckoutSolution {
 
         if (!products.isEmpty()) {
             for (Product product : products) {
-                for(CombinationOffer co : product.getCombinationOffers()){
-                    for(String sPattern : co.getPatternList()){
-                        Pattern p = Pattern.compile(sPattern);
-                        Matcher matcher = p.matcher(skus);
-                        if(matcher.find()){
-                            List<String> refs = Stream.of(sPattern.split("")).collect(Collectors.toList());
-                            for(String ref : refs ){
-                                Product pro = new ProductFactory().createProduct(ProductFactoryMethod.product.valueOf(ref));
-                                sumToTotalPrice(-pro.getPrice());
-                                items.remove(pro.getProductRef().getRef());
+                if (!items.isEmpty()) {
+                    for (CombinationOffer co : product.getCombinationOffers()) {
+                        for (String sPattern : co.getPatternList()) {
+                            Pattern p = Pattern.compile(sPattern);
+                            Matcher matcher = p.matcher(skus);
+                            if (matcher.find()) {
+                                List<String> refs = Stream.of(sPattern.split("")).collect(Collectors.toList());
+                                for (String ref : refs) {
+                                    Product pro = new ProductFactory().createProduct(ProductFactoryMethod.product.valueOf(ref));
+                                    sumToTotalPrice(-pro.getPrice());
+                                    items.remove(pro.getProductRef().getRef());
+                                }
+                                sumToTotalPrice(co.getPrice());
                             }
-                            sumToTotalPrice(co.getPrice());
-                        }
-                        if(items.isEmpty()){
-                            break;
+
                         }
                     }
                 }
@@ -116,7 +116,7 @@ public class CheckoutSolution {
                         Product free = new ProductFactory().createProduct(freeProduct);
                         int numPack = Collections.frequency(items, product.getProductRef().getRef()) / so.getNumItems();
                         // delete pack offer
-                        if(numPack>0) {
+                        if (numPack > 0) {
                             for (int i = so.getNumItems(); i > 0; i--) {
                                 items.remove(product.getProductRef().getRef());
                             }
@@ -219,7 +219,7 @@ public class CheckoutSolution {
                 for (Offer offer : product.getOfferList()) {
                     int numPack = Collections.frequency(items, product.getProductRef().getRef()) / offer.getNumProducts();
                     //only process if there is a pack
-                    if (items.size() / offer.getNumProducts() > 0 && numPack >0) {
+                    if (items.size() / offer.getNumProducts() > 0 && numPack > 0) {
                         // substract unitary price and count products processed
                         int count = 0;
                         for (int i = offer.getNumProducts(); i > 0; i--) {
@@ -253,6 +253,7 @@ public class CheckoutSolution {
         return product -> set.add(ref.apply(product));
     }
 }
+
 
 
 
