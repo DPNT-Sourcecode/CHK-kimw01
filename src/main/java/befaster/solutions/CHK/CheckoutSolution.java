@@ -109,6 +109,7 @@ public class CheckoutSolution {
                                         break;
                                     }
                                 }
+                                numPack--;
                             } else {
                                 Integer price = new ProductFactory().createProduct(freeProduct).getPrice();
                                 // substract the unitary price of free product
@@ -176,8 +177,3 @@ public class CheckoutSolution {
         return product -> set.add(ref.apply(product));
     }
 }
-
-
-
-
-
